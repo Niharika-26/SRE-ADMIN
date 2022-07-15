@@ -1,10 +1,11 @@
 import "./App.css";
-import Dropdown from "./components/Dropdown";
+import TableComponent from "./components/Table";
 
 function App() {
   return (
     <div className="App">
-      <Dropdown name="env" />
+      {/* <Dropdown name="env" /> */}
+      <TableComponent/>
     </div>
   );
 }
