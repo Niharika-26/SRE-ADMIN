@@ -219,9 +219,6 @@ function TableComponent(){
 
   return (
 
-  <div className='App'>
-    
-    <header className='App-header'>
     <Table 
         dataSource={data}
         columns={columns}
@@ -230,9 +227,6 @@ function TableComponent(){
 
     </Table>
 
-    </header>
-    
-  </div>
 
   );
   

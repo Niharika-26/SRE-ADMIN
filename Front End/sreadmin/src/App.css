@@ -15,7 +15,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,4 +36,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.top{
+  padding: 50px 50px 100px 50px;
+  position: relative;
+}  
+
+.searchbar{
+  position: absolute;
+  left: 20%;
+}
+
+.modalbtn{
+  position: absolute;
+  right: 10%;
 }
