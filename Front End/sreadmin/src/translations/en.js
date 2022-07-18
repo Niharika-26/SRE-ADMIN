@@ -1,5 +1,5 @@
 export const TRANSLATIONS_EN = {
-  Title: "SRE INSIGHT ADMIN",
+  Title: "SRE INSIGHTS ADMIN",
   taskSearch: "Search",
   buttonText: "ADD TASK",
   phJob: "Please Select Job",
