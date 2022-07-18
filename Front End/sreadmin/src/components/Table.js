@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Table, Button}  from "antd";
-import {PlusCircleOutlined} from "@ant-design/icons";
+import {HistoryOutlined} from "@ant-design/icons";
 
 
 function TableComponent(){
@@ -218,8 +218,8 @@ function TableComponent(){
         data:'',
         key:'key',
            render: (text, record) => (
-        <Button onClick={()=> console.log(record)}>
-          <PlusCircleOutlined />
+        <Button style={{"width":100}} onClick={()=> console.log(record)}>
+      <HistoryOutlined />
         </Button>
        ),
       }

@@ -4,7 +4,7 @@ import TableComponent from "./components/Table";
 import SearchFilter from "./components/SearchBar";
 import Modal from "./components/Modal";
 <link href="https://fonts.googleapis.com/css2?family=Merriweather" rel="stylesheet"/>
-
+// chnagess added
 function App() {
   return ( <Fragment>
     <div>
@@ -16,7 +16,7 @@ function App() {
         <h1 className="project-title">SRE INSIGHTS ADMIN</h1>
       </div>
     </div>
-       
+      
     <div className="top">
       <div className="searchbar">
         <SearchFilter/>     
