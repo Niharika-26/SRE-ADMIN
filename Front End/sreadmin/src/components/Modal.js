@@ -20,18 +20,18 @@ const App = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal} style={{"height":50,"width":150, "text-align":"center"}}>
+      <Button type="primary" onClick={showModal} style={{"height":45,"width":150, "text-align":"center"}}>
         ADD TASK
       </Button>
       <Modal title="ADD TASK" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} style={{"text-align":"center"}}>
-        <div style={{"text-align":"center"}}>
-          <p>Select Environment</p>
-          <Dropdown name="Environment"/>
-        </div>
-        <div style={{"text-align":"center","margin-top":50}}>
-          <p>Select Job</p>
-          <Dropdown name="Job"/>
-        </div>
+          <div style={{"text-align":"left"}}>
+            <p style={{"display":"inline-block", "margin-top":5}}> Please Select Environment</p>
+            <Dropdown name="Environment"/>
+          </div>
+          <div style={{"text-align":"left", "margin-top":20}}>
+            <p style={{"display":"inline-block","margin-top":5}}>Please Select Job</p>
+            <Dropdown name="Job"/>
+          </div>
       </Modal>
     </>
   );

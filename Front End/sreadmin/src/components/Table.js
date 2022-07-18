@@ -4,7 +4,6 @@ import {Table, Button}  from "antd";
 import {PlusCircleOutlined} from "@ant-design/icons";
 
 
-
 function TableComponent(){
 
     const data =[
@@ -205,10 +204,9 @@ function TableComponent(){
         title:'Reschedule',
         data:'',
         key:'key',
-      //render: (_,record,index) => <button>{index+1}</button>,
-      render: (text, record) => (
+           render: (text, record) => (
         <Button onClick={()=> console.log(record)}>
-         <PlusCircleOutlined />
+          <PlusCircleOutlined />
         </Button>
        ),
       }

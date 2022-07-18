@@ -1,4 +1,19 @@
 import { Input } from 'antd';
 import React from 'react';
-const SearchFilter = () => <Input placeholder="Search Task" style={{"height": 50, "width": 700, "display": "inline-block" }}/>;
+const { Search } = Input;
+
+
+const onSearch = (value) => console.log(value);
+
+const SearchFilter = () => (
+    <Search
+      placeholder="Search Task"
+      allowClear 
+      enterButton
+      size="large"
+      onSearch={onSearch}
+      style={{"width":500}}
+    />
+); 
+
 export default SearchFilter;

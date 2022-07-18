@@ -1,6 +1,8 @@
 @import "antd/dist/antd.css";
 .App {
   text-align: center;
+  width: 80%;
+  margin: auto;
 }
 
 .App-logo {
@@ -46,10 +48,21 @@
 
 .searchbar{
   position: absolute;
-  left: 20%;
+  left: 33.5%;
 }
 
 .modalbtn{
   position: absolute;
   right: 10%;
+}
+
+.project-title{
+  font-family: 'Merriweather', serif;
+  color: #011E35;
+  text-align: center;
+  font-size: 50px;
+  line-height: 2;
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
 }
