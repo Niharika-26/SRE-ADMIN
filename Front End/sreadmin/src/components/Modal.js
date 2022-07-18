@@ -30,9 +30,13 @@ const ModalComponent = (props) => {
         {t("buttonText")}
       </Button>
       <Modal
+        footer={[
+          <Button key="submit" type="primary" onClick={handleOk}>
+            {t("schedule")}
+          </Button>,
+        ]}
         title={t("buttonText")}
         visible={isModalVisible}
-        onOk={handleOk}
         onCancel={handleCancel}
         style={{ "text-align": "center" }}
       >

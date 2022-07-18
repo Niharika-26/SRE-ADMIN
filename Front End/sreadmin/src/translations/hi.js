@@ -15,5 +15,6 @@ export const TRANSLATIONS_HI = {
   c8: "आरंभ दिनांक",
   c9: "वर्तमान स्थिति",
   c10: "पुनर्निर्धारित",
+  schedule: "अनुसूची",
   name1: "hindi",
 };
