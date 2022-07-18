@@ -1,19 +1,22 @@
-import { Input } from 'antd';
-import React from 'react';
+import { Input } from "antd";
+import React from "react";
+import { useTranslation } from "react-i18next";
 const { Search } = Input;
-
 
 const onSearch = (value) => console.log(value);
 
-const SearchFilter = () => (
+const SearchFilter = (props) => {
+  const { t } = useTranslation();
+  return (
     <Search
-      placeholder="Search Task"
-      allowClear 
+      placeholder={t("taskSearch")}
+      allowClear
       enterButton
       size="large"
       onSearch={onSearch}
-      style={{"width":500}}
+      style={{ width: 500 }}
     />
-); 
+  );
+};
 
 export default SearchFilter;

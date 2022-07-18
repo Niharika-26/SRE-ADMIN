@@ -1,15 +1,22 @@
 import { Cascader } from "antd";
 import { Fragment } from "react";
+import { useTranslation } from "react-i18next";
 
 const Dropdown = (props) => {
-  const pHolder = `Select ${props.name}`;
+  const { t } = useTranslation();
+
   return (
     <Fragment>
       <Cascader
         defaultValue={props.default}
         options={props.options}
-        placeholder={pHolder}
-        style={{"width":300, "display":"inline-block", "position":"absolute","right":20}}
+        placeholder={t("phHolder")}
+        style={{
+          width: 300,
+          display: "inline-block",
+          position: "absolute",
+          right: 20,
+        }}
       />
     </Fragment>
   );
