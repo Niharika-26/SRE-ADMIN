@@ -15,6 +15,7 @@ export const TRANSLATIONS_EN = {
   c8: "Start date",
   c9: "Status",
   c10: "Reschedule",
-  schedule: "Schedule",
+  schedule: "ADD",
   name1: "fxbgfbnf nh",
+  changelang: "Change Language",
 };

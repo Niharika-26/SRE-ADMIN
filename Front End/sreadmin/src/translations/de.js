@@ -15,6 +15,7 @@ export const TRANSLATIONS_DE = {
   c8: "Anfangsdatum",
   c9: "Status",
   c10: "umplanen",
-  schedule: "zeitlicher Ablauf",
+  schedule: "Hinzufügen",
   name1: "german",
+  changelang: "Sprache ändern",
 };
