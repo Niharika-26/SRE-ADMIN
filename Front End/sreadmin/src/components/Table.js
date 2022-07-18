@@ -30,7 +30,7 @@ function TableComponent(){
           Due_date:23,
           Created_date:24,
           Start_date: 1,
-          key:'1'
+          key:'2'
       
         },
         {
@@ -44,7 +44,7 @@ function TableComponent(){
         Due_date:23,
         Created_date:24,
         Start_date: 1,
-        key:'1'
+        key:'3'
     
       },{
     
@@ -57,7 +57,7 @@ function TableComponent(){
         Due_date:23,
         Created_date:24,
         Start_date: 1,
-        key:'1'
+        key:'4'
     
       },{
     
@@ -70,7 +70,7 @@ function TableComponent(){
         Due_date:23,
         Created_date:24,
         Start_date: 1,
-        key:'1'
+        key:'5'
     
       },{
     
@@ -83,122 +83,135 @@ function TableComponent(){
         Due_date:23,
         Created_date:24,
         Start_date: 1,
-        key:'1'
-    
-      },{
-    
-        
-    
-        Task_name: 'name7',
-        Environment_name : 'env',
-        Request_data:'data',
-        Response_data :'data22',
-        Due_date:23,
-        Created_date:24,
-        Start_date: 1,
-        key:'2'
-    
-      },{
-    
-        
-    
-        Task_name: 'name7',
-        Environment_name : 'env',
-        Request_data:'data',
-        Response_data :'data22',
-        Due_date:23,
-        Created_date:24,
-        Start_date: 1,
-        key:'3'
-    
-      },{
-    
-        
-    
-        Task_name: 'name7',
-        Environment_name : 'env',
-        Request_data:'data',
-        Response_data :'data22',
-        Due_date:23,
-        Created_date:24,
-        Start_date: 1,
-        key:'4'
-    
-      },{
-    
-        
-    
-        Task_name: 'name7',
-        Environment_name : 'env',
-        Request_data:'data',
-        Response_data :'data22',
-        Due_date:23,
-        Created_date:24,
-        Start_date: 1,
-        key:'5'
-    
-      },{
-    
-        
-    
-        Task_name: 'name7',
-        Environment_name : 'env',
-        Request_data:'data',
-        Response_data :'data22',
-        Due_date:23,
-        Created_date:24,
-        Start_date: 1,
         key:'6'
+    
+      },{
+    
+        
+    
+        Task_name: 'name7',
+        Environment_name : 'env',
+        Request_data:'data',
+        Response_data :'data22',
+        Due_date:23,
+        Created_date:24,
+        Start_date: 1,
+        key:'7'
+    
+      },{
+    
+        
+    
+        Task_name: 'name7',
+        Environment_name : 'env',
+        Request_data:'data',
+        Response_data :'data22',
+        Due_date:23,
+        Created_date:24,
+        Start_date: 1,
+        key:'8'
+    
+      },{
+    
+        
+    
+        Task_name: 'name7',
+        Environment_name : 'env',
+        Request_data:'data',
+        Response_data :'data22',
+        Due_date:23,
+        Created_date:24,
+        Start_date: 1,
+        key:'9'
+    
+      },{
+    
+        
+    
+        Task_name: 'name7',
+        Environment_name : 'env',
+        Request_data:'data',
+        Response_data :'data22',
+        Due_date:23,
+        Created_date:24,
+        Start_date: 1,
+        key:'10'
+    
+      },{
+    
+        
+    
+        Task_name: 'name11',
+        Environment_name : 'env',
+        Request_data:'data',
+        Response_data :'data22',
+        Due_date:23,
+        Created_date:24,
+        Start_date: 1,
+        key:'11'
+    
+      },
+      {
+    
+        
+    
+        Task_name: 'name12',
+        Environment_name : 'env',
+        Request_data:'data',
+        Response_data :'data22',
+        Due_date:23,
+        Created_date:24,
+        Start_date: 1,
+        key:'12'
     
       },
       ]
+      
     const columns = [
         {
             title:'Sr. No.',
-            dataIndex:'srno',
-            key:'key',
-            render: (_,record,index) => <p>{index+1}</p>,
-
+            dataIndex:'key',
+            key:'key'
         },
       {
         title:'Task name ',
         dataIndex:'Task_name',
-        key:'key'
+        key:'Task_name'
       },
       {
-        title:' Environment name ',
+        title:'Environment name ',
         dataIndex:'Environment_name',
-        key:'key'
+        key:'Environment_name'
       },
       {
         title:'Request data ',
         dataIndex:'Request_data',
-        key:'key'
+        key:'Request_data'
       },
       {
         title:'Response data ',
         dataIndex:'Response_data',
-        key:'key'
+        key:'Response_data'
       },
       {
         title:'Due date ',
         dataIndex:'Due_date',
-        key:'key'
+        key:'Due_date'
       },
       {
         title:'Created date ',
         dataIndex:'Created_date',
-        key:'key'
+        key:'Created_date'
       },
       {
         title:'Start date ',
         dataIndex:'Start_date',
-        key:'key'
+        key:'Start_date'
       },
       {
         title:'Status ',
         dataIndex:'Task_name',
-        key:'key'
+        key:'Task_name'
       },
       {
         title:'Reschedule',
@@ -214,12 +227,13 @@ function TableComponent(){
     ]
     
 
-
+   
   return (
 
     <Table 
         dataSource={data}
         columns={columns}
+        
         bordered
         >
 
