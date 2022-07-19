@@ -8,6 +8,7 @@ import ModalComponent from "./components/Modal";
 //import Translator from "./components/translator";
 //<Translator style={{"display":"inline-block","position":"absolute", "right":10,"marginTop":10}}/>
 //<p style={{display:"inline-block","position":"absolute", "right":250,"marginTop":5}}>{t("changelang")}</p>
+//dxvc
 <link
   href="https://fonts.googleapis.com/css2?family=Merriweather"
   rel="stylesheet"
