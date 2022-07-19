@@ -1,9 +1,4 @@
 @import "antd/dist/antd.css";
-.App {
-  text-align: center;
-  width: 80%;
-  margin: auto;
-}
 
 .App-logo {
   height: 40vmin;
@@ -40,10 +35,25 @@
   }
 }
 
+.table {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+
+.tab{
+  background-color:#ffcc5c;
+}
+
+.tablediv{
+  background-color: #4f3222;
+}
+
 
 .top{
   padding: 50px 50px 100px 50px;
   position: relative;
+  background-color: #4f3222;
 }  
 
 .searchbar{
