@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Table, Button, Tag } from "antd";
 import { HistoryOutlined } from "@ant-design/icons";
+import ModalComponent from "./Modal";
 
 function TableComponent(props) {
   const { t } = useTranslation();
@@ -29,6 +30,7 @@ function TableComponent(props) {
       title: t("c4"),
       dataIndex: "responsedata",
       key: "responsedata",
+      render: (value) => <ModalComponent responseData={value} />,
     },
     {
       title: t("c5"),
@@ -47,12 +49,13 @@ function TableComponent(props) {
       key: "status",
       render: (val) => {
         let color = "blue";
+        val = val.toLowerCase();
 
-        if (val === "Pending") {
+        if (val === "pending") {
           color = "yellow";
-        } else if (val === "In-Progress") {
+        } else if (val === "in progress") {
           color = "blue";
-        } else if (val === "Failed") {
+        } else if (val === "failed") {
           color = "red";
         } else {
           color = "green";
@@ -86,6 +89,7 @@ function TableComponent(props) {
       dataSource={props.data}
       loading={props.isLoading}
       columns={columns}
+      size="small"
       bordered
       pagination={{
         onChange(current) {

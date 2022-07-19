@@ -33,7 +33,7 @@
     "responsedata": "data22",
     "dueat": "15/07/22",
     "modifiedat": "10/07/22",
-    "status": "In-Progress"
+    "status": "In Progress"
   },
   {
     "taskname": "name5",
@@ -51,7 +51,7 @@
     "responsedata": "data22",
     "dueat": "18/07/22",
     "modifiedat": "13/07/22",
-    "status": "In-Progress"
+    "status": "In Progress"
   },
   {
     "taskname": "name7",
@@ -78,7 +78,7 @@
     "responsedata": "data22",
     "dueat": "9/07/22",
     "modifiedat": "7/07/22",
-    "status": "Successful"
+    "status": "Success"
   },
   {
     "taskname": "name7",
@@ -87,7 +87,7 @@
     "responsedata": "data22",
     "dueat": "18/07/22",
     "modifiedat": "13/07/22",
-    "status": "Successful"
+    "status": "Success"
   },
   {
     "taskname": "name11",

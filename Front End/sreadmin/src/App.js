@@ -26,19 +26,19 @@ function App() {
     }
   }, []);
   const asyncFetch = () => {
-    setIsLoading(true)
-      fetch('http://localhost:8000/data')
+    setIsLoading(true);
+    fetch("http://localhost:8000/data")
       .then((response) => response.json())
       .then((json) => {
-          setData(json["tasks"]);
-          setIsLoading(false)
+        setData(json["tasks"]);
+        setIsLoading(false);
       })
       .catch((error) => {
-          console.log('fetch data failed', error);
+        console.log("fetch data failed", error);
       });
-    };
-    useEffect(() => {
-      asyncFetch();
+  };
+  useEffect(() => {
+    asyncFetch();
   }, []);
 
   return (
@@ -66,13 +66,13 @@ function App() {
           <SearchFilter />
         </div>
         <div className="modalbtn">
-          <ModalComponent />
+          <ModalComponent addTask />
         </div>
       </div>
 
       <div className="tablediv">
         <div className="table">
-          <TableComponent data={data} isLoading={isLoading}/>
+          <TableComponent data={data} isLoading={isLoading} />
         </div>
       </div>
     </Fragment>
