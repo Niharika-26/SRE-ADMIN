@@ -8,6 +8,117 @@ function TableComponent(props) {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
 
+  const data = [
+    {
+      taskname: "name1",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "2/07/22",
+      modifiedat: "1/07/22",
+      status: "Pending",
+    },
+    {
+      taskname: "ship",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "23/07/22",
+      modifiedat: "10/07/22",
+      status: "Failed",
+    },
+    {
+      taskname: "name3",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "18/07/22",
+      modifiedat: "3/07/22",
+      status: "Failed",
+    },
+    {
+      taskname: "name4",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "15/07/22",
+      modifiedat: "10/07/22",
+      status: "In-Progress",
+    },
+    {
+      taskname: "name5",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "24/08/22",
+      modifiedat: "30/07/22",
+      status: "Pending",
+    },
+    {
+      taskname: "name6",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "18/07/22",
+      modifiedat: "13/07/22",
+      status: "In-Progress",
+    },
+    {
+      taskname: "name7",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "9/07/22",
+      modifiedat: "7/07/22",
+      status: "Pending",
+    },
+    {
+      taskname: "name7",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "18/07/22",
+      modifiedat: "13/07/22",
+      status: "Pending",
+    },
+    {
+      taskname: "name7",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "9/07/22",
+      modifiedat: "7/07/22",
+      status: "Successful",
+    },
+    {
+      taskname: "name7",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "18/07/22",
+      modifiedat: "13/07/22",
+      status: "Successful",
+    },
+    {
+      taskname: "name11",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "9/07/22",
+      modifiedat: "7/07/22",
+      status: "Pending",
+    },
+    {
+      taskname: "name12",
+      environmentname: "env",
+
+      responsedata: "data22",
+      dueat: "18/07/22",
+      modifiedat: "13/07/22",
+      status: "Pending",
+    },
+  ];
+
   const columns = [
     {
       title: t("c1"),
@@ -86,7 +197,7 @@ function TableComponent(props) {
 
   return (
     <Table
-      dataSource={props.data}
+      dataSource={data}
       loading={props.isLoading}
       columns={columns}
       size="small"

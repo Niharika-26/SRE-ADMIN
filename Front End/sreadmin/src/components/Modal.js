@@ -27,7 +27,8 @@ const ModalComponent = (props) => {
         <Button
           type="primary"
           onClick={showModal}
-          style={{ height: 45, width: 150, textAlign: "center" }}
+          size="middle"
+          style={{ textAlign: "center" }}
         >
           {t("buttonText")}
         </Button>

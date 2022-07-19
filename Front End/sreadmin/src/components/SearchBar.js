@@ -12,9 +12,8 @@ const SearchFilter = (props) => {
       placeholder={t("taskSearch")}
       allowClear
       enterButton
-      size="large"
+      size="middle"
       onSearch={onSearch}
-      style={{ width: 500 }}
     />
   );
 };

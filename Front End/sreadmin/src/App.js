@@ -47,21 +47,16 @@ function App() {
         <img
           style={{
             display: "inline-block",
-            marginLeft: 200,
-            marginRight: 120,
-            marginTop: 10,
-            marginBottom: 25,
-            left: 200,
-            width: 70,
+            marginLeft: 10,
+            marginTop: 7.5,
+            width: 50,
           }}
           src="https://www.decurtis.com/wp-content/uploads/2019/11/logo-decurtis-corporation.png"
           alt="Logo"
         />
 
         <h1 className="project-title">{t("Title")}</h1>
-      </div>
 
-      <div className="top">
         <div className="searchbar">
           <SearchFilter />
         </div>

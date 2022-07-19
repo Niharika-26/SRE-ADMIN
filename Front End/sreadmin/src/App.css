@@ -41,40 +41,40 @@
 }
 
 .tab {
-  background-color: #ffcc5c;
-  height: 84px;
+  background-color:  #82b74b;
+  height: 60px;
+  position: relative;
 }
 
 .tablediv {
-  background-color: #4f3222;
+  padding-top: 10px;
+  background-color:  #3e4444;
 }
 
-.top {
-  padding: 21px 50px 0px 50px;
-  position: relative;
-  background-color: #4f3222;
-  height: 84px;
-}
 
 .searchbar {
+  display: inline-block;
   position: absolute;
-  left: 33.5%;
+  right: 9%;
+  margin-top: 15px;
+  
 }
 
 .modalbtn {
+  display: inline-block;
   position: absolute;
-  right: 10%;
+  right: 1%;
+  margin-top: 15px;
 }
 
 .project-title {
   font-family: "Merriweather", serif;
   color: #011e35;
   text-align: center;
-  font-size: 50px;
+  font-size: 30px;
   line-height: 1;
-  width: 100%;
-  margin-top: 20px;
+  margin-top: 15px;
   display: inline-block;
   position: absolute;
-  width: 50%;
+  left: 5%;
 }
