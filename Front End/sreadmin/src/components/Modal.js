@@ -25,32 +25,35 @@ const ModalComponent = (props) => {
       <Button
         type="primary"
         onClick={showModal}
-        style={{ height: 45, width: 150, "text-align": "center" }}
+        style={{ height: 45, width: 150, textAlign: "center" }}
       >
         {t("buttonText")}
       </Button>
-      <Modal 
+      <Modal
         footer={[
-          <Button style={{"width":"100%","height":50, fontSize:20,"margin-top":-10}} key="submit" type="primary" onClick={handleOk}>
+          <Button
+            style={{ width: "100%", height: 50, fontSize: 20, marginTop: -10 }}
+            key="submit"
+            type="primary"
+            onClick={handleOk}
+          >
             {t("schedule")}
           </Button>,
         ]}
         title={t("buttonText")}
         visible={isModalVisible}
         onCancel={handleCancel}
-        style={{ "text-align": "center"}}
+        style={{ textAlign: "center" }}
       >
-        <div style={{ "text-align": "left" }}>
-          <p style={{ display: "inline-block", "margin-top": 5 }}>
+        <div style={{ textAlign: "left" }}>
+          <p style={{ display: "inline-block", marginTop: 5 }}>
             {" "}
             {t("phEnvironment")}
           </p>
           <Dropdown name="Environment" />
         </div>
-        <div style={{ "text-align": "left", "margin-top": 20 }}>
-          <p style={{ display: "inline-block", "margin-top": 5 }}>
-            {t("phJob")}
-          </p>
+        <div style={{ textAlign: "left", marginTop: 20 }}>
+          <p style={{ display: "inline-block", marginTop: 5 }}>{t("phJob")}</p>
           <Dropdown name="Job" />
         </div>
       </Modal>

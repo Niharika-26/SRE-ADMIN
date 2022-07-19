@@ -12,7 +12,6 @@
 }
 
 .App-header {
-  
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -41,40 +40,41 @@
   margin: auto;
 }
 
-.tab{
-  background-color:#ffcc5c;
+.tab {
+  background-color: #ffcc5c;
+  height: 84px;
 }
 
-.tablediv{
+.tablediv {
   background-color: #4f3222;
 }
 
-
-.top{
-  padding: 50px 50px 100px 50px;
+.top {
+  padding: 21px 50px 0px 50px;
   position: relative;
   background-color: #4f3222;
-}  
+  height: 84px;
+}
 
-.searchbar{
+.searchbar {
   position: absolute;
   left: 33.5%;
 }
 
-.modalbtn{
+.modalbtn {
   position: absolute;
   right: 10%;
 }
 
-.project-title{
-  font-family: 'Merriweather', serif;
-  color: #011E35;
+.project-title {
+  font-family: "Merriweather", serif;
+  color: #011e35;
   text-align: center;
   font-size: 50px;
   line-height: 1;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 20px;
   display: inline-block;
   position: absolute;
-  width:50%;
+  width: 50%;
 }
