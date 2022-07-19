@@ -3,120 +3,9 @@ import { useTranslation } from "react-i18next";
 import { Table, Button, Tag } from "antd";
 import { HistoryOutlined } from "@ant-design/icons";
 
-function TableComponent() {
+function TableComponent(props) {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
-
-  const data = [
-    {
-      Task_name: "name1",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "2/07/22",
-      Modified_at: "1/07/22",
-      Status: "Pending",
-    },
-    {
-      Task_name: "ship",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "23/07/22",
-      Modified_at: "10/07/22",
-      Status: "Failed",
-    },
-    {
-      Task_name: "name3",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "18/07/22",
-      Modified_at: "3/07/22",
-      Status: "Failed",
-    },
-    {
-      Task_name: "name4",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "15/07/22",
-      Modified_at: "10/07/22",
-      Status: "In-Progress",
-    },
-    {
-      Task_name: "name5",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "24/08/22",
-      Modified_at: "30/07/22",
-      Status: "Pending",
-    },
-    {
-      Task_name: "name6",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "18/07/22",
-      Modified_at: "13/07/22",
-      Status: "In-Progress",
-    },
-    {
-      Task_name: "name7",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "9/07/22",
-      Modified_at: "7/07/22",
-      Status: "Pending",
-    },
-    {
-      Task_name: "name7",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "18/07/22",
-      Modified_at: "13/07/22",
-      Status: "Pending",
-    },
-    {
-      Task_name: "name7",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "9/07/22",
-      Modified_at: "7/07/22",
-      Status: "Successful",
-    },
-    {
-      Task_name: "name7",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "18/07/22",
-      Modified_at: "13/07/22",
-      Status: "Successful",
-    },
-    {
-      Task_name: "name11",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "9/07/22",
-      Modified_at: "7/07/22",
-      Status: "Pending",
-    },
-    {
-      Task_name: "name12",
-      Environment_name: "env",
-
-      Response_data: "data22",
-      Due_at: "18/07/22",
-      Modified_at: "13/07/22",
-      Status: "Pending",
-    },
-  ];
 
   const columns = [
     {
@@ -127,43 +16,43 @@ function TableComponent() {
     },
     {
       title: t("c2"),
-      dataIndex: "Task_name",
-      key: "Task_name",
+      dataIndex: "taskname",
+      key: "taskname",
     },
     {
       title: t("c3"),
-      dataIndex: "Environment_name",
-      key: "Environment_name",
+      dataIndex: "environmentname",
+      key: "environmentname",
     },
 
     {
       title: t("c4"),
-      dataIndex: "Response_data",
-      key: "Response_data",
+      dataIndex: "responsedata",
+      key: "responsedata",
     },
     {
       title: t("c5"),
-      dataIndex: "Due_at",
-      key: "Due_at",
+      dataIndex: "dueat",
+      key: "dueat",
     },
 
     {
       title: t("c6"),
-      dataIndex: "Modified_at",
-      key: "Modified_at",
+      dataIndex: "modifiedat",
+      key: "modifiedat",
     },
     {
       title: t("c7"),
-      dataIndex: "Status",
-      key: "Status",
-      render: (value) => {
+      dataIndex: "status",
+      key: "status",
+      render: (val) => {
         let color = "blue";
 
-        if (value === "Pending") {
+        if (val === "Pending") {
           color = "yellow";
-        } else if (value === "In-Progress") {
+        } else if (val === "In-Progress") {
           color = "blue";
-        } else if (value === "Failed") {
+        } else if (val === "Failed") {
           color = "red";
         } else {
           color = "green";
@@ -173,9 +62,9 @@ function TableComponent() {
           <Tag
             style={{ width: 100, textAlign: "center" }}
             color={color}
-            key={value}
+            key={val}
           >
-            {value.toUpperCase()}
+            {val.toUpperCase()}
           </Tag>
         );
       },
@@ -194,7 +83,8 @@ function TableComponent() {
 
   return (
     <Table
-      dataSource={data}
+      dataSource={props.data}
+      loading={props.isLoading}
       columns={columns}
       bordered
       pagination={{

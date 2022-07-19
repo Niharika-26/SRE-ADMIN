@@ -11,7 +11,7 @@ export const TRANSLATIONS_DE = {
   c4: "Antwortdaten",
   c5: "Geburtstermin",
   c6: "Erstellungsdatum",
-  c7: "Status",
+  c7: "status",
   c8: "umplanen",
   schedule: "Hinzufügen",
   changelang: "Sprache ändern",

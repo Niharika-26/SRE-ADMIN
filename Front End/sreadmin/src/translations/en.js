@@ -11,7 +11,7 @@ export const TRANSLATIONS_EN = {
   c4: "Response data",
   c5: "Due At",
   c6: "Modified At",
-  c7: "Status",
+  c7: "status",
   c8: "Reschedule",
   schedule: "ADD",
   name1: "request",

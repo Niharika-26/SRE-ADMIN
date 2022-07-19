@@ -1,5 +1,5 @@
 import "./App.css";
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "./translations/i18n";
 import TableComponent from "./components/Table";
@@ -16,12 +16,29 @@ import ModalComponent from "./components/Modal";
 
 function App() {
   const { t } = useTranslation();
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     i18n.changeLanguage(navigator.language);
     if (localStorage.getItem("i18nextLng")?.length > 2) {
       i18n.changeLanguage("en");
     }
+  }, []);
+  const asyncFetch = () => {
+    setIsLoading(true)
+      fetch('http://localhost:8000/data')
+      .then((response) => response.json())
+      .then((json) => {
+          setData(json["tasks"]);
+          setIsLoading(false)
+      })
+      .catch((error) => {
+          console.log('fetch data failed', error);
+      });
+    };
+    useEffect(() => {
+      asyncFetch();
   }, []);
 
   return (
@@ -55,7 +72,7 @@ function App() {
 
       <div className="tablediv">
         <div className="table">
-          <TableComponent />
+          <TableComponent data={data} isLoading={isLoading}/>
         </div>
       </div>
     </Fragment>
