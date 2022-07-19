@@ -72,10 +72,7 @@ const ModalComponent = (props) => {
   }
   return (
     <>
-      <EyeOutlined
-        onClick={showModal}
-        // style={{ height: 45, width: 150, textAlign: "center" }}
-      />
+      <EyeOutlined onClick={showModal} />
       <Modal
         footer={[]}
         title={t("c4")}
