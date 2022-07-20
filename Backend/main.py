@@ -31,7 +31,9 @@ jobs =[{
     'value': 'text',
     'label': 'text',},{
     'value': 'call',
-    'label': 'call',},]
+    'label': 'call',},{
+    'value': 'test',
+    'label': 'test',},]
 
 # app.add_middleware()
 @app.get('/data')
@@ -43,14 +45,24 @@ def data():
 def post_data(request: TaskBase):
     modifieddate = date.today().strftime("%d-%m-%y")
     duedate = date.today()+timedelta(5)
-    newTask = dict(
-        taskname = request.taskname,
-        environmentname = request.environmentname,
-        responsedata ="fvfdvxc",
-        dueat=duedate.strftime("%d-%m-%y"),
-        modifiedat=modifieddate,
-        status="pending",
-    )
+    if request.currenttask:
+        newTask = dict(
+            taskname= request.taskname,
+            environmentname= request.environmentname,
+            responsedata= request.currenttask["responsedata"],
+            dueat= duedate.strftime("%d-%m-%y"),
+            modifiedat= modifieddate,
+            status= "pending",
+            )
+    else:
+        newTask = dict(
+            taskname = request.taskname,
+            environmentname = request.environmentname,
+            responsedata ="fvfdvxc",
+            dueat=duedate.strftime("%d-%m-%y"),
+            modifiedat=modifieddate,
+            status="success",
+        )
     file.insert(0,newTask)
     overridedata=[]
     for data in file:

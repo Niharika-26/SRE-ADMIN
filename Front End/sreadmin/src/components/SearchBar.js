@@ -4,9 +4,8 @@ import { useTranslation } from "react-i18next";
 import "./styles/SearchBar.css";
 const { Search } = Input;
 
-const onSearch = (value) => console.log(value);
-
 const SearchBar = (props) => {
+  const onSearch = (value) => props.handleSearch(value);
   const { t } = useTranslation();
   return (
     <div className="searchbar">

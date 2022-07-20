@@ -9,17 +9,28 @@ import { asyncPost } from "../hooks/use-api";
 const ModalComponent = (props) => {
   const { t } = useTranslation();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [selectedEnvironment,setSelectedEnvironment] = useState('');
-  const [selectedJob,setSelectedJob] = useState('');
+  const [isError, setIsError] = useState(false);
+  const [selectedEnvironment, setSelectedEnvironment] = useState("");
+  const [selectedJob, setSelectedJob] = useState("");
 
   const showModal = () => {
     setIsModalVisible(true);
   };
 
   const handleOk = () => {
-    setIsModalVisible(false);
-    asyncPost(selectedJob,selectedEnvironment,props.setData,props.setIsLoading);
-    
+    if (selectedEnvironment !== "" && selectedJob !== "") {
+      setIsModalVisible(false);
+      asyncPost(
+        selectedJob,
+        selectedEnvironment,
+        props.setData,
+        props.setSearchData,
+        props.setIsLoading
+      );
+      setIsError(false);
+    } else {
+      setIsError(true);
+    }
   };
 
   const handleCancel = () => {
@@ -58,18 +69,27 @@ const ModalComponent = (props) => {
           onCancel={handleCancel}
           style={{ textAlign: "center" }}
         >
+          {isError && <p>Please Select Environment and Job</p>}
           <div style={{ textAlign: "left" }}>
             <p style={{ display: "inline-block", marginTop: 5 }}>
               {" "}
               {t("phEnvironment")}
             </p>
-            <Dropdown name="Environment" options={props.data.envirnoments} setSelectedOption={setSelectedEnvironment}/>
+            <Dropdown
+              name="Environment"
+              options={props.data.envirnoments}
+              setSelectedOption={setSelectedEnvironment}
+            />
           </div>
           <div style={{ textAlign: "left", marginTop: 20 }}>
             <p style={{ display: "inline-block", marginTop: 5 }}>
               {t("phJob")}
             </p>
-            <Dropdown name="Job" options={props.data.jobs} setSelectedOption={setSelectedJob}/>
+            <Dropdown
+              name="Job"
+              options={props.data.jobs}
+              setSelectedOption={setSelectedJob}
+            />
           </div>
         </Modal>
       </div>

@@ -14,40 +14,47 @@ function TableComponent(props) {
       title: t("c1"),
       dataIndex: "key",
       key: "key",
+      align: "center",
       render: (value, item, index) => (page - 1) * 10 + index + 1,
     },
     {
       title: t("c2"),
       dataIndex: "taskname",
       key: "taskname",
+      align: "center",
     },
     {
       title: t("c3"),
       dataIndex: "environmentname",
       key: "environmentname",
+      align: "center",
     },
 
     {
       title: t("c4"),
       dataIndex: "responsedata",
       key: "responsedata",
+      align: "center",
       render: (value) => <ModalComponent responseData={value} />,
     },
     {
       title: t("c5"),
       dataIndex: "dueat",
       key: "dueat",
+      align: "center",
     },
 
     {
       title: t("c6"),
       dataIndex: "modifiedat",
       key: "modifiedat",
+      align: "center",
     },
     {
       title: t("c7"),
       dataIndex: "status",
       key: "status",
+      align: "center",
       render: (val) => {
         let color = "blue";
         val = val.toLowerCase();
@@ -77,35 +84,39 @@ function TableComponent(props) {
       title: t("c8"),
       data: "",
       key: "key",
+      align: "center",
       render: (text, record) => (
-        <Button style={{ width: 100 }} onClick={() => console.log(record)}>
+        <Button
+          style={{ width: 100 }}
+          onClick={() => props.scheduleHandler(record)}
+        >
           <HistoryOutlined />
         </Button>
       ),
     },
   ];
 
-  return (<Fragment>
-    <div className="tableout">
-      <div className="tablein">
-        <Table
-          dataSource={props.data}
-          loading={props.isLoading}
-          columns={columns}
-          showSizeChanger="false"
-          size="small"
-          bordered
-          pagination={{
-            size: "default",
-            onChange(current) {
-              setPage(current);
-            },
-          }}
-        ></Table>
-    </div>
-    </div>
-    
-  </Fragment>
+  return (
+    <Fragment>
+      <div className="tableout">
+        <div className="tablein">
+          <Table
+            dataSource={props.data}
+            loading={props.isLoading}
+            columns={columns}
+            showSizeChanger="false"
+            size="small"
+            bordered
+            pagination={{
+              size: "default",
+              onChange(current) {
+                setPage(current);
+              },
+            }}
+          ></Table>
+        </div>
+      </div>
+    </Fragment>
   );
 }
 

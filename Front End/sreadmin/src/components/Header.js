@@ -7,15 +7,22 @@ const Header = (props) => {
   const { t } = useTranslation();
   return (
     <div className="tab">
-      <img className="logoimg"
+      <img
+        className="logoimg"
         src="https://www.decurtis.com/wp-content/uploads/2019/11/logo-decurtis-corporation.png"
         alt="Logo"
       />
 
       <h1 className="project-title">{t("Title")}</h1>
 
-      <SearchBar />
-      <ModalComponent addTask data={props.data} setData={props.setData} setIsLoading={props.setIsLoading}/>
+      <SearchBar handleSearch={props.handleSearch} />
+      <ModalComponent
+        addTask
+        data={props.data}
+        setData={props.setData}
+        setSearchData={props.setSearchData}
+        setIsLoading={props.setIsLoading}
+      />
     </div>
   );
 };
