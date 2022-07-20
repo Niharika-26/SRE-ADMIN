@@ -7,7 +7,7 @@ from pydantic import BaseModel
 file=open("data.json")
 file=json.load(file)
 app = FastAPI()
-
+#fronend
 
 
 origins = ['http://localhost:3000','http://127.0.0.1:3000']
