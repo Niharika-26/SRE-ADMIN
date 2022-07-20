@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import Header from "../components/Header";
-import TableComponent from "../components/Table";
+import TableComponent from "../components/TableComponent";
 import { asyncFetch } from "../hooks/use-api";
 
 const AdminPanel = () => {

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { EyeOutlined } from "@ant-design/icons";
 import Dropdown from "./Dropdown";
+import "./styles/ModalComponent.css";
 
 const ModalComponent = (props) => {
   const { t } = useTranslation();
@@ -23,7 +24,7 @@ const ModalComponent = (props) => {
 
   if (props.addTask) {
     return (
-      <>
+      <div className="modalbtn">
         <Button
           type="primary"
           onClick={showModal}
@@ -67,7 +68,7 @@ const ModalComponent = (props) => {
             <Dropdown name="Job" options={props.data.jobs} />
           </div>
         </Modal>
-      </>
+      </div>
     );
   }
   return (

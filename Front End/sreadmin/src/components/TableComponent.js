@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Table, Button, Tag } from "antd";
 import { HistoryOutlined } from "@ant-design/icons";
-import ModalComponent from "./Modal";
+import ModalComponent from "./ModalComponent";
+import "./styles/Table.css";
 
 function TableComponent(props) {
   const { t } = useTranslation();

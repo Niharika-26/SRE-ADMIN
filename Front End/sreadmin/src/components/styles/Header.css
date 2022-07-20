@@ -1,0 +1,17 @@
+.project-title {
+  font-family: "Merriweather", serif;
+  color: #011e35;
+  text-align: center;
+  font-size: 30px;
+  line-height: 1;
+  margin-top: 15px;
+  display: inline-block;
+  position: absolute;
+  left: 5%;
+}
+
+.tab {
+  background-color: #82b74b;
+  height: 60px;
+  position: relative;
+}

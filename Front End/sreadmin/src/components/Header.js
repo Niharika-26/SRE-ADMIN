@@ -1,6 +1,7 @@
-import SearchFilter from "./SearchBar";
-import ModalComponent from "./Modal";
+import SearchBar from "./SearchBar";
+import ModalComponent from "./ModalComponent";
 import { useTranslation } from "react-i18next";
+import "./styles/Header.css";
 
 const Header = (props) => {
   const { t } = useTranslation();
@@ -19,12 +20,8 @@ const Header = (props) => {
 
       <h1 className="project-title">{t("Title")}</h1>
 
-      <div className="searchbar">
-        <SearchFilter />
-      </div>
-      <div className="modalbtn">
-        <ModalComponent addTask data={props.data} />
-      </div>
+      <SearchBar />
+      <ModalComponent addTask data={props.data} />
     </div>
   );
 };

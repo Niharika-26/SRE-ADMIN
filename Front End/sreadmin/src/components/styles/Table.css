@@ -1,0 +1,10 @@
+.table {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+
+.tablediv {
+  padding-top: 10px;
+  background-color: #3e4444;
+}
