@@ -95,6 +95,7 @@ function TableComponent(props) {
           size="small"
           bordered
           pagination={{
+            size: "default",
             onChange(current) {
               setPage(current);
             },
