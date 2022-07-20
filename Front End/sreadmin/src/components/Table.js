@@ -85,18 +85,22 @@ function TableComponent(props) {
   ];
 
   return (
-    <Table
-      dataSource={props.data}
-      loading={props.isLoading}
-      columns={columns}
-      size="small"
-      bordered
-      pagination={{
-        onChange(current) {
-          setPage(current);
-        },
-      }}
-    ></Table>
+    <div className="tablediv">
+      <div className="table">
+        <Table
+          dataSource={props.data}
+          loading={props.isLoading}
+          columns={columns}
+          size="small"
+          bordered
+          pagination={{
+            onChange(current) {
+              setPage(current);
+            },
+          }}
+        ></Table>
+      </div>
+    </div>
   );
 }
 

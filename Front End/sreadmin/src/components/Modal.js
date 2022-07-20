@@ -58,13 +58,13 @@ const ModalComponent = (props) => {
               {" "}
               {t("phEnvironment")}
             </p>
-            <Dropdown name="Environment" />
+            <Dropdown name="Environment" options={props.data.envirnoments} />
           </div>
           <div style={{ textAlign: "left", marginTop: 20 }}>
             <p style={{ display: "inline-block", marginTop: 5 }}>
               {t("phJob")}
             </p>
-            <Dropdown name="Job" />
+            <Dropdown name="Job" options={props.data.jobs} />
           </div>
         </Modal>
       </>
