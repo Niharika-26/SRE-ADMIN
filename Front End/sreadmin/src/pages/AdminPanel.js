@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import Header from "../components/Header";
 import TableComponent from "../components/TableComponent";
 import { asyncFetch } from "../hooks/use-api";
+import Copyright from "../components/copyright";
 
 const AdminPanel = () => {
   const [data, setData] = useState({});
@@ -13,6 +14,7 @@ const AdminPanel = () => {
     <Fragment>
       <Header data={data} />
       <TableComponent data={data.tasks} isLoading={isLoading} />
+      <Copyright/>
     </Fragment>
   );
 };

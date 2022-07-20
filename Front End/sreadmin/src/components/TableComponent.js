@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Table, Button, Tag } from "antd";
 import { HistoryOutlined } from "@ant-design/icons";
@@ -85,13 +85,14 @@ function TableComponent(props) {
     },
   ];
 
-  return (
-    <div className="tablediv">
-      <div className="table">
+  return (<Fragment>
+    <div className="tableout">
+      <div className="tablein">
         <Table
           dataSource={props.data}
           loading={props.isLoading}
           columns={columns}
+          showSizeChanger="false"
           size="small"
           bordered
           pagination={{
@@ -101,8 +102,10 @@ function TableComponent(props) {
             },
           }}
         ></Table>
-      </div>
     </div>
+    </div>
+    
+  </Fragment>
   );
 }
 

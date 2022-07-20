@@ -16,4 +16,5 @@ export const TRANSLATIONS_EN = {
   schedule: "ADD",
   changelang: "Change Language",
   close: "close",
+  fcopyright: "Copyright © 2022 SRE Insights Admin. All rights reserved by DeCurtis International Pvt. Ltd. Creators: Arunabh, Dikshant, Niharika, Mohini, Gaurav",
 };
