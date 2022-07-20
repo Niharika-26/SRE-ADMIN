@@ -1,17 +1,15 @@
 import { Cascader } from "antd";
 import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "../translations/i18n";
-
-const languageHandler=(value)=>{i18n.changeLanguage(value[0])}
 
 const Dropdown = (props) => {
+  const changeHandler=(value)=>{ props.setSelectedOption(value[0])}
   const { t } = useTranslation();
 
   return (
     <Fragment>
       <Cascader
-      onChange={languageHandler}
+      onChange={changeHandler}
         defaultValue={props.default}
         options={props.options}
         placeholder={props.placeholder || t("phHolder")}

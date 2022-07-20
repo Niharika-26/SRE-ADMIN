@@ -21,7 +21,7 @@ const Header = (props) => {
       <h1 className="project-title">{t("Title")}</h1>
 
       <SearchBar />
-      <ModalComponent addTask data={props.data} />
+      <ModalComponent addTask data={props.data} setData={props.setData} setIsLoading={props.setIsLoading}/>
     </div>
   );
 };

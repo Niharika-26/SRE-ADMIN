@@ -1,8 +1,11 @@
 from asyncio import tasks
+from typing import Dict
 from fastapi import FastAPI,Request
 import json
+from datetime import date,timedelta
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from schemas import TaskBase
 
 file=open("data.json")
 file=json.load(file)
@@ -35,23 +38,29 @@ jobs =[{
 def data():
     return {"tasks": file, "envirnoments": envirnoments, "jobs":jobs}
 
-# @app.get("/data/{limit}")
-# def read_item(limit: str ):
-#   listoftasks=[]
-#   #tasks=file.read()
-#   for tasks in file:
-#     if limit.lower()==tasks['env'].lower():
-#         listoftasks.append(tasks)
-#   return listoftasks
 
-# @app.get("/data/{value}")
-# def read_env(value: str ):
-#   listofenvs=[]
-#   #tasks=file.read()
-#   for envs in file:
-#     if value.lower()==envs['env'].lower():
-#         listofenvs.append(envs)
-#   return listofenvs
+@app.post('/data')
+def post_data(request: TaskBase):
+    modifieddate = date.today().strftime("%d-%m-%y")
+    duedate = date.today()+timedelta(5)
+    newTask = dict(
+        taskname = request.taskname,
+        environmentname = request.environmentname,
+        responsedata ="fvfdvxc",
+        dueat=duedate.strftime("%d-%m-%y"),
+        modifiedat=modifieddate,
+        status="pending",
+    )
+    file.insert(0,newTask)
+    overridedata=[]
+    for data in file:
+        overridedata.append(json.dumps(data,indent=4))
+    overridedata = str(overridedata)
+    with open("data.json", "w") as outfile:
+        outfile.write(overridedata)
+    return file
+    
+
 
 
 

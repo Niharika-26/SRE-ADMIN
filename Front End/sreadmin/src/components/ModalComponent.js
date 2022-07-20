@@ -4,10 +4,13 @@ import React, { useState } from "react";
 import { EyeOutlined } from "@ant-design/icons";
 import Dropdown from "./Dropdown";
 import "./styles/ModalComponent.css";
+import { asyncPost } from "../hooks/use-api";
 
 const ModalComponent = (props) => {
   const { t } = useTranslation();
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedEnvironment,setSelectedEnvironment] = useState('');
+  const [selectedJob,setSelectedJob] = useState('');
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -15,7 +18,8 @@ const ModalComponent = (props) => {
 
   const handleOk = () => {
     setIsModalVisible(false);
-    console.log("ok");
+    asyncPost(selectedJob,selectedEnvironment,props.setData,props.setIsLoading);
+    
   };
 
   const handleCancel = () => {
@@ -59,13 +63,13 @@ const ModalComponent = (props) => {
               {" "}
               {t("phEnvironment")}
             </p>
-            <Dropdown name="Environment" options={props.data.envirnoments} />
+            <Dropdown name="Environment" options={props.data.envirnoments} setSelectedOption={setSelectedEnvironment}/>
           </div>
           <div style={{ textAlign: "left", marginTop: 20 }}>
             <p style={{ display: "inline-block", marginTop: 5 }}>
               {t("phJob")}
             </p>
-            <Dropdown name="Job" options={props.data.jobs} />
+            <Dropdown name="Job" options={props.data.jobs} setSelectedOption={setSelectedJob}/>
           </div>
         </Modal>
       </div>
