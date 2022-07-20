@@ -15,3 +15,10 @@
   height: 60px;
   position: relative;
 }
+
+.logoimg{
+  display: "inline-block";
+  margin-left: 10px;
+  margin-top: 7.5px;
+  width: 50px;
+}

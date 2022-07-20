@@ -1,11 +1,17 @@
-.table {
-  text-align: center;
-  width: 90%;
-  margin: auto;
+.tableout {
+  padding-top: 2rem;
+  background-color: #3e4444;
+  position: relative;
+  margin: 0;
+  height: 90vh;
 }
 
-.tablediv {
-  padding-top: 10px;
+.tablein {
+  text-align: center;
+  width: 90%;
+  margin: 0;
+  display: inline-block;
+  position: absolute;
   background-color: #3e4444;
-  height: 38rem;
+  left: 5%;
 }
