@@ -44,6 +44,7 @@ const AdminPanel = () => {
         setSearchData={setSearchData}
         setIsLoading={setIsLoading}
         handleSearch={handleSearch}
+        isLoading={isLoading}
       />
       <TableComponent
         data={data}

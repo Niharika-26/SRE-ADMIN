@@ -18,6 +18,7 @@ const Header = (props) => {
       <SearchBar handleSearch={props.handleSearch} />
       <ModalComponent
         addTask
+        isLoading={props.isLoading}
         data={props.data}
         setData={props.setData}
         setSearchData={props.setSearchData}

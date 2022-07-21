@@ -41,6 +41,7 @@ const ModalComponent = (props) => {
     return (
       <div className="modalbtn">
         <Button
+          disabled={props.isLoading}
           type="primary"
           onClick={showModal}
           size="middle"
@@ -77,7 +78,7 @@ const ModalComponent = (props) => {
             </p>
             <Dropdown
               name="Environment"
-              options={props.data.envirnoments}
+              options={props.data.environments}
               setSelectedOption={setSelectedEnvironment}
             />
           </div>

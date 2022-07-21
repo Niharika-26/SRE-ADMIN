@@ -10,7 +10,7 @@ export const asyncFetch = (
     .then((json) => {
       setData(json.tasks);
       setSearchedData(json.tasks);
-      setLookUp({ envirnoments: json.envirnoments, jobs: json.jobs });
+      setLookUp({ environments: json.environments, jobs: json.jobs });
       setIsLoading(false);
     })
     .catch((error) => {
@@ -32,6 +32,7 @@ export const asyncPost = (
     environmentname,
     currenttask,
   });
+  console.log(body);
   fetch("http://localhost:8000/data", {
     method: "POST",
     body,
