@@ -104,6 +104,7 @@ function TableComponent(props) {
             dataSource={props.data}
             loading={props.isLoading}
             columns={columns}
+            scroll={{ y: 500 }}
             showSizeChanger="false"
             size="small"
             bordered

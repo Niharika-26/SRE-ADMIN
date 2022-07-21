@@ -1,6 +1,6 @@
 .tableout {
-  padding-top: 2rem;
-  background-color: #3e4444;
+  padding-top: 3rem;
+  background-color: #e1e8ed;
   position: relative;
   margin: 0;
   height: 90vh;
@@ -12,6 +12,24 @@
   margin: 0;
   display: inline-block;
   position: absolute;
-  background-color: #3e4444;
+  background-color: #e1e8ed;
   left: 5%;
+}
+
+* {
+
+  -ms-overflow-style: none;
+
+}
+
+::-webkit-scrollbar {
+
+  display: none;
+
+}
+
+.ant-table-body {
+
+  min-height: 30.625rem;
+
 }
