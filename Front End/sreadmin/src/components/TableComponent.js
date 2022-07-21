@@ -101,6 +101,7 @@ function TableComponent(props) {
       <div className="tableout">
         <div className="tablein">
           <Table
+            scroll={{ y: 500 }}
             dataSource={props.data}
             loading={props.isLoading}
             columns={columns}

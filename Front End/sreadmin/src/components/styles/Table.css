@@ -15,3 +15,7 @@
   background-color: #3e4444;
   left: 5%;
 }
+
+.ant-table-body {
+  min-height: 500px;
+}
