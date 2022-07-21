@@ -17,19 +17,20 @@
 }
 
 * {
-
   -ms-overflow-style: none;
-
 }
 
 ::-webkit-scrollbar {
-
   display: none;
-
 }
 
 .ant-table-body {
-
   min-height: 30.625rem;
-
+}
+.ant-table-thead > tr > th {
+  background: #0474cc;
+  color: white;
+}
+tr:nth-child(odd) {
+  background: #e5f2ff;
 }

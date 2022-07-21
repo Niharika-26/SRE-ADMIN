@@ -14,6 +14,7 @@ function TableComponent(props) {
       title: t("c1"),
       dataIndex: "key",
       key: "key",
+      width: 70,
       align: "center",
       render: (value, item, index) => (page - 1) * 10 + index + 1,
     },
@@ -28,6 +29,7 @@ function TableComponent(props) {
       dataIndex: "environmentname",
       key: "environmentname",
       align: "center",
+      width: 130,
     },
 
     {
@@ -35,10 +37,12 @@ function TableComponent(props) {
       dataIndex: "responsedata",
       key: "responsedata",
       align: "center",
+      width: 100,
       render: (value) => <ModalComponent responseData={value} />,
     },
     {
       title: t("c5"),
+      width: 200,
       dataIndex: "dueat",
       key: "dueat",
       align: "center",
@@ -49,12 +53,14 @@ function TableComponent(props) {
       dataIndex: "modifiedat",
       key: "modifiedat",
       align: "center",
+      width: 200,
     },
     {
       title: t("c7"),
       dataIndex: "status",
       key: "status",
       align: "center",
+      width: 115,
       render: (val) => {
         let color = "blue";
         val = val.toLowerCase();
@@ -85,6 +91,7 @@ function TableComponent(props) {
       data: "",
       key: "key",
       align: "center",
+      width: 115,
       render: (text, record) => (
         <Button
           style={{ width: 100 }}
@@ -101,14 +108,16 @@ function TableComponent(props) {
       <div className="tableout">
         <div className="tablein">
           <Table
+            scroll={{ y: 500 }}
             dataSource={props.data}
             loading={props.isLoading}
             columns={columns}
-            scroll={{ y: 500 }}
             showSizeChanger="false"
             size="small"
             bordered
             pagination={{
+              total: props.data.length,
+              showSizeChanger: false,
               size: "default",
               onChange(current) {
                 setPage(current);
