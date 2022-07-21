@@ -18,7 +18,7 @@ const Dropdown = (props) => {
         allowClear="false"
         disabled={props.disabled ? props.disabled : false}
         onChange={changeHandler}
-        defaultValue={props.default}
+        value={props.value}
         options={props.options}
         placeholder={props.placeholder || t("phHolder")}
         style={{

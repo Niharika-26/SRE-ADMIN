@@ -1,1 +1,10 @@
 @import "antd/dist/antd.css";
+
+
+.ant-btn-primary {
+
+    background-color: #0474cc;
+    border-color: #0474cc;
+    color: white;
+  }
+  

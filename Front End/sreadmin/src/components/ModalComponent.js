@@ -61,14 +61,14 @@ const ModalComponent = (props) => {
           {t("buttonText")}
         </Button>
         <Modal
+          loading="true"
           footer={[
             <Button
               disabled={environments.length === 0}
               style={{
-                width: "100%",
-                height: 50,
-                fontSize: 20,
-                marginTop: -10,
+                width: "30%",
+                height: 35,
+                fontSize: 15,
               }}
               key="submit"
               type="primary"
@@ -100,7 +100,7 @@ const ModalComponent = (props) => {
             </p>
             <Dropdown
               name="Environment"
-              default={selectedEnvironment}
+              value={selectedEnvironment}
               disabled={environments.length === 0}
               options={environments}
               setSelectedOption={setSelectedEnvironment}
