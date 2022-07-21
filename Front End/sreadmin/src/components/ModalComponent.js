@@ -53,10 +53,9 @@ const ModalComponent = (props) => {
           footer={[
             <Button
               style={{
-                width: "100%",
-                height: 50,
-                fontSize: 20,
-                marginTop: -10,
+                width: "30%",
+                height: 35,
+                fontSize: 15,
               }}
               key="submit"
               type="primary"

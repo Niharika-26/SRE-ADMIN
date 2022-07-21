@@ -1,11 +1,11 @@
+import React, { Fragment } from "react";
 import SearchBar from "./SearchBar";
 import ModalComponent from "./ModalComponent";
 import { useTranslation } from "react-i18next";
 import "./styles/Header.css";
-
 const Header = (props) => {
   const { t } = useTranslation();
-  return (
+  return (<Fragment>
     <div className="tab">
       <img
         className="logoimg"
@@ -25,6 +25,8 @@ const Header = (props) => {
         setIsLoading={props.setIsLoading}
       />
     </div>
+    <div style={{"background-color":"#0474cc", "height":5}}></div>
+    </Fragment>
   );
 };
 
