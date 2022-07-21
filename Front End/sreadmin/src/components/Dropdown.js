@@ -8,6 +8,7 @@ const Dropdown = (props) => {
       props.setSelectedOption(undefined);
     } else {
       props.setSelectedOption(value[0]);
+      props.setIsError({});
     }
   };
   const { t } = useTranslation();
@@ -15,6 +16,7 @@ const Dropdown = (props) => {
   return (
     <Fragment>
       <Cascader
+        status={props.isError ? "error" : ""}
         allowClear="false"
         disabled={props.disabled ? props.disabled : false}
         onChange={changeHandler}

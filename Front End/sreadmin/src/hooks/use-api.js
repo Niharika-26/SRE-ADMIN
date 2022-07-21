@@ -47,16 +47,16 @@ export const asyncPost = (
 export const asyncFetchEnvironments = (
   jobName,
   setEnvironments,
-  setIsError
+  setIsError,
+  setIsLoading
 ) => {
+  setIsLoading(true);
   fetch(`http://localhost:8000/data/${jobName}/environments`)
     .then((response) => response.json())
     .then((json) => {
       setEnvironments(json);
       setIsError(false);
-      // setSearchedData(json.tasks);
-      // setJobs(json.jobs);
-      // setIsLoading(false);
+      setIsLoading(false);
     })
     .catch((error) => {
       console.log("fetch data failed", error);
