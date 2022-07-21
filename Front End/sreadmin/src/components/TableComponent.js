@@ -112,8 +112,10 @@ function TableComponent(props) {
               size: "default",
               onChange(current) {
                 setPage(current);
+
               },
             }}
+            
           ></Table>
         </div>
       </div>
