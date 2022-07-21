@@ -1,10 +1,10 @@
 import { Button, Modal } from "antd";
 import { useTranslation } from "react-i18next";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { EyeOutlined } from "@ant-design/icons";
 import Dropdown from "./Dropdown";
 import "./styles/ModalComponent.css";
-import { asyncPost } from "../hooks/use-api";
+import { asyncPost, asyncFetchEnvironments } from "../hooks/use-api";
 
 const ModalComponent = (props) => {
   const { t } = useTranslation();
@@ -12,10 +12,21 @@ const ModalComponent = (props) => {
   const [isError, setIsError] = useState(false);
   const [selectedEnvironment, setSelectedEnvironment] = useState("");
   const [selectedJob, setSelectedJob] = useState("");
+  const [environments, setEnvironments] = useState([]);
 
   const showModal = () => {
     setIsModalVisible(true);
   };
+
+  useEffect(() => {
+    if (selectedJob !== "" && selectedJob !== undefined) {
+      asyncFetchEnvironments(selectedJob, setEnvironments, setIsError);
+    }
+    if (selectedJob !== "" || selectedJob === undefined) {
+      setEnvironments([]);
+      setSelectedEnvironment("");
+    }
+  }, [selectedJob]);
 
   const handleOk = () => {
     if (selectedEnvironment !== "" && selectedJob !== "") {
@@ -52,6 +63,7 @@ const ModalComponent = (props) => {
         <Modal
           footer={[
             <Button
+              disabled={environments.length === 0}
               style={{
                 width: "100%",
                 height: 50,
@@ -70,7 +82,17 @@ const ModalComponent = (props) => {
           onCancel={handleCancel}
           style={{ textAlign: "center" }}
         >
-          {isError && <p>Please Select Environment and Job</p>}
+          {isError && <p>Please select Environment</p>}
+          <div style={{ textAlign: "left", marginTop: 20 }}>
+            <p style={{ display: "inline-block", marginTop: 5 }}>
+              {t("phJob")}
+            </p>
+            <Dropdown
+              name="Job"
+              options={props.jobs}
+              setSelectedOption={setSelectedJob}
+            />
+          </div>
           <div style={{ textAlign: "left" }}>
             <p style={{ display: "inline-block", marginTop: 5 }}>
               {" "}
@@ -78,18 +100,10 @@ const ModalComponent = (props) => {
             </p>
             <Dropdown
               name="Environment"
-              options={props.data.environments}
+              default={selectedEnvironment}
+              disabled={environments.length === 0}
+              options={environments}
               setSelectedOption={setSelectedEnvironment}
-            />
-          </div>
-          <div style={{ textAlign: "left", marginTop: 20 }}>
-            <p style={{ display: "inline-block", marginTop: 5 }}>
-              {t("phJob")}
-            </p>
-            <Dropdown
-              name="Job"
-              options={props.data.jobs}
-              setSelectedOption={setSelectedJob}
             />
           </div>
         </Modal>

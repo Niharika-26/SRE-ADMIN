@@ -19,7 +19,7 @@ const Header = (props) => {
       <ModalComponent
         addTask
         isLoading={props.isLoading}
-        data={props.data}
+        jobs={props.jobs}
         setData={props.setData}
         setSearchData={props.setSearchData}
         setIsLoading={props.setIsLoading}

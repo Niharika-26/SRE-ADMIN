@@ -29,7 +29,7 @@ function TableComponent(props) {
       dataIndex: "environmentname",
       key: "environmentname",
       align: "center",
-      width: 130,
+      // width: 140,
     },
 
     {

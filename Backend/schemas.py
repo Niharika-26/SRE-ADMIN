@@ -14,6 +14,5 @@ class Task(BaseModel):
     modifiedat:str
     status:str  
 class LookUpData(BaseModel):
-    environments:List
     jobs:List
     tasks:List

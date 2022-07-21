@@ -3,13 +3,21 @@ import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 
 const Dropdown = (props) => {
-  const changeHandler=(value)=>{ props.setSelectedOption(value[0])}
+  const changeHandler = (value) => {
+    if (value === undefined) {
+      props.setSelectedOption(undefined);
+    } else {
+      props.setSelectedOption(value[0]);
+    }
+  };
   const { t } = useTranslation();
 
   return (
     <Fragment>
       <Cascader
-      onChange={changeHandler}
+        allowClear="false"
+        disabled={props.disabled ? props.disabled : false}
+        onChange={changeHandler}
         defaultValue={props.default}
         options={props.options}
         placeholder={props.placeholder || t("phHolder")}
