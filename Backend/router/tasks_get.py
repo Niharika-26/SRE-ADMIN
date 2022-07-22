@@ -10,8 +10,8 @@ router = APIRouter(
   prefix='/data',
   tags=['tasks']
 )
-
-@router.get('/',response_model = LookUpData)
+@router.get('/')
+# @router.get('/',response_model = LookUpData)
 def get_tasks(db: Session = Depends(get_db)):
     return db_tasks.get_all_tasks(db)
 
