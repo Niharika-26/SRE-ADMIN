@@ -1,6 +1,6 @@
 from sqlalchemy.orm.session import Session
 from schemas import TaskBase
-from db.models import DbEnvironment,DbJob
+from db.models import DbEnvironment,DbJob,DbJobEnvironment
 from datetime import date, timedelta
 import json
 
@@ -8,17 +8,23 @@ file=open("data.json")
 file=json.load(file)
 
 def get_all_tasks(db: Session):
-    environment =db.query(DbEnvironment.name).all()
+    job = db.query(DbJob.name,DbJob.job_id).filter(DbJob.job_id.in_(db.query(DbJobEnvironment.job_id).distinct().all())).all()
+    job = [{
+      "value": data["name"],
+      "label": data["name"],
+      "key": data['job_id']
+    } for data in job]
+    return {"jobs": job, "tasks":file}
+
+def get_environments(db: Session, request:str):
+    environment = db.query(DbJobEnvironment.environment_id).filter(DbJobEnvironment.job_id == request).all()
+    environment = [data["environment_id"] for data in environment]
+    environment = db.query(DbEnvironment.name).filter(DbEnvironment.environment_id.in_(environment)).all()
     environment = [{
       "value": data["name"],
       "label": data["name"],
     } for data in environment]
-    job = db.query(DbJob.name).all()
-    job = [{
-      "value": data["name"],
-      "label": data["name"],
-    } for data in job]
-    return {"environments": environment,"jobs": job, "tasks":file}
+    return environment
 
 
 def create_task(db: Session,request: TaskBase):

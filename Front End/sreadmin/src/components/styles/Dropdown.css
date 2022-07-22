@@ -1,0 +1,9 @@
+.ant-cascader-menu {
+  min-width: 300px;
+  height: 100%;
+}
+
+.bigDropdown .ant-cascader-menu {
+  min-width: 300px;
+  height: 200px;
+}

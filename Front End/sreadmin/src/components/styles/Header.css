@@ -1,20 +1,20 @@
 .project-title {
-  font-family: "Merriweather", serif;
+  font-family: "Kanit", sans-serif;
   color: #011e35;
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
   line-height: 1;
-  margin-top: 15px;
+  margin-top: 10px;
   display: inline-block;
   position: absolute;
   left: 5%;
 }
 
 .tab {
-  background-color: #82b74b;
+  background-image: linear-gradient(to right, white, #889ca9);
   height: 60px;
   position: relative;
-}
+ }
 
 .logoimg{
   display: "inline-block";
