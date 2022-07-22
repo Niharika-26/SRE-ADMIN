@@ -9,6 +9,8 @@ return (<Fragment>
 <div className="foot">
     <p className="copyright">{" "}
               {t("fcopyright")}</p>
+    <p className="credits">{" "}
+              {t("fcredits")}</p>
 </div>
 </Fragment>
 );

@@ -2,8 +2,8 @@ export const TRANSLATIONS_EN = {
   Title: "SRE INSIGHTS ADMIN",
   taskSearch: "Search Task",
   buttonText: "ADD TASK",
-  phJob: "Please Select Job",
-  phEnvironment: "Please Select Envirnoment",
+  phJob: "Select Job",
+  phEnvironment: "Select Envirnoment",
   phHolder: "Please select",
   c1: "SR. NO.",
   c2: "TASK",
@@ -17,5 +17,6 @@ export const TRANSLATIONS_EN = {
   changelang: "Change Language",
   close: "close",
   fcopyright:
-    "Copyright © 2022 SRE Insights Admin. All rights reserved by DeCurtis International Pvt. Ltd. Creators: Arunabh, Dikshant, Niharika, Mohini, Gaurav",
+    "Copyright © 2022 SRE Insights Admin. All rights reserved by DeCurtis International Pvt. Ltd.",
+  fcredits: "Developed by: Arunabh, Dikshant, Niharika, Mohini, Gaurav",
 };

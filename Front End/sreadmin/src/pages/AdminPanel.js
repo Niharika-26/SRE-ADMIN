@@ -7,10 +7,10 @@ import Copyright from "../components/copyright";
 const AdminPanel = () => {
   const [data, setData] = useState([]);
   const [searchData, setSearchData] = useState([]);
-  const [lookUp, setLookUp] = useState({});
+  const [jobs, setJobs] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    asyncFetch(setIsLoading, setData, setSearchData, setLookUp);
+    asyncFetch(setIsLoading, setData, setSearchData, setJobs);
   }, []);
 
   const scheduleHandler = (record) => {
@@ -28,7 +28,7 @@ const AdminPanel = () => {
     const filteredTask = searchData.filter((tasks) => {
       return tasks.taskname
         .toLowerCase()
-        .startsWith(value.toLowerCase().trim());
+        .includes(value.toLowerCase().trim());
     });
     if (value.length < 1) {
       setData(searchData);
@@ -39,7 +39,7 @@ const AdminPanel = () => {
   return (
     <Fragment>
       <Header
-        data={lookUp}
+        jobs={jobs}
         setData={setData}
         setSearchData={setSearchData}
         setIsLoading={setIsLoading}
