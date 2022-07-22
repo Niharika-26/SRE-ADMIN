@@ -10,46 +10,51 @@ const ModalComponent = (props) => {
   const { t } = useTranslation();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isError, setIsError] = useState({});
-  const [selectedEnvironment, setSelectedEnvironment] = useState("");
-  const [selectedJob, setSelectedJob] = useState("");
+  const [selectedEnvironment, setSelectedEnvironment] = useState(undefined);
+  const [selectedJob, setSelectedJob] = useState(undefined);
   const [environments, setEnvironments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  console.log(selectedEnvironment);
   const showModal = () => {
     setIsModalVisible(true);
   };
 
   useEffect(() => {
-    if (selectedJob !== "" && selectedJob !== undefined) {
+    if (selectedJob !== undefined && selectedJob.value !== "") {
       asyncFetchEnvironments(
-        selectedJob,
+        selectedJob.key,
         setEnvironments,
         setIsError,
         setIsLoading
       );
     }
-    if (selectedJob !== "" || selectedJob === undefined) {
+    if (selectedJob === undefined || selectedJob.value !== "") {
       setEnvironments([]);
       setSelectedEnvironment("");
     }
   }, [selectedJob]);
 
   const handleOk = () => {
-    if (selectedEnvironment !== "" && selectedJob !== "") {
+    if (
+      selectedJob !== undefined &&
+      selectedEnvironment !== "" &&
+      selectedJob.value !== "" &&
+      selectedEnvironment.value !== ""
+    ) {
       setIsModalVisible(false);
       asyncPost(
-        selectedJob,
-        selectedEnvironment,
+        selectedJob.value,
+        selectedEnvironment.value,
         props.setData,
         props.setSearchData,
         props.setIsLoading
       );
       setIsError({});
     } else {
-      if (selectedEnvironment === "") {
+      if (selectedEnvironment === "" || selectedEnvironment.value === "") {
         setIsError({ environment: true });
       }
-      if (selectedJob === "") {
+      if (selectedJob === undefined || selectedJob.value === "") {
         setIsError({ job: true });
       }
     }
@@ -92,8 +97,8 @@ const ModalComponent = (props) => {
           onCancel={handleCancel}
           style={{ textAlign: "center" }}
         >
-          <div style={{ textAlign: "left", marginTop: 20 }}>
-            <p style={{ display: "inline-block", marginTop: 5 }}>
+          <div style={{ textAlign: "left", marginBottom: 20 }}>
+            <p style={{ display: "inline-block", marginBottom: 5 }}>
               {t("phJob")}
             </p>
             <Dropdown
@@ -105,7 +110,7 @@ const ModalComponent = (props) => {
             />
           </div>
           <div style={{ textAlign: "left" }}>
-            <p style={{ display: "inline-block", marginTop: 5 }}>
+            <p style={{ display: "inline-block", marginBottom: 5 }}>
               {" "}
               {t("phEnvironment")}
             </p>
@@ -123,7 +128,11 @@ const ModalComponent = (props) => {
                 setIsError={setIsError}
                 isError={isError.environment}
                 name="Environment"
-                value={selectedEnvironment}
+                value={
+                  selectedEnvironment === undefined
+                    ? ""
+                    : selectedEnvironment.value
+                }
                 disabled={environments.length === 0}
                 options={environments}
                 setSelectedOption={setSelectedEnvironment}

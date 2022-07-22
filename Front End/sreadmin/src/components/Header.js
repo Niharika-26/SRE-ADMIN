@@ -26,7 +26,7 @@ const Header = (props) => {
           setIsLoading={props.setIsLoading}
         />
       </div>
-      <div style={{ "background-color": "#0474cc", height: 5 }}></div>
+      <div style={{ backgroundColor: "#0474cc", height: 5 }}></div>
     </Fragment>
   );
 };

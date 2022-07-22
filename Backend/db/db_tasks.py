@@ -8,16 +8,16 @@ file=open("data.json")
 file=json.load(file)
 
 def get_all_tasks(db: Session):
-    job = db.query(DbJob.name).all()
+    job = db.query(DbJob.name,DbJob.job_id).all()
     job = [{
       "value": data["name"],
       "label": data["name"],
+      "key": data['job_id']
     } for data in job]
     return {"jobs": job, "tasks":file}
 
 def get_environments(db: Session, request:str):
-    selected_job_id = db.query(DbJob.job_id).filter(DbJob.name == request).first()
-    environment = db.query(DbJobEnvironment.environment_id).filter(DbJobEnvironment.job_id == selected_job_id["job_id"]).all()
+    environment = db.query(DbJobEnvironment.environment_id).filter(DbJobEnvironment.job_id == request).all()
     environment = [data["environment_id"] for data in environment]
     environment = db.query(DbEnvironment.name).filter(DbEnvironment.environment_id.in_(environment)).all()
     environment = [{

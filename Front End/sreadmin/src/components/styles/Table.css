@@ -16,11 +16,7 @@
   left: 5%;
 }
 
-* {
-  -ms-overflow-style: none;
-}
-
-::-webkit-scrollbar {
+.ant-table-body::-webkit-scrollbar {
   display: none;
 }
 

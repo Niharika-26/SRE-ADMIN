@@ -1,13 +1,14 @@
 import { Cascader } from "antd";
 import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
+import "./styles/Dropdown.css";
 
 const Dropdown = (props) => {
-  const changeHandler = (value) => {
+  const changeHandler = (value, label) => {
     if (value === undefined) {
       props.setSelectedOption(undefined);
     } else {
-      props.setSelectedOption(value[0]);
+      props.setSelectedOption(label[0]);
       props.setIsError({});
     }
   };
@@ -22,6 +23,7 @@ const Dropdown = (props) => {
         onChange={changeHandler}
         value={props.value}
         options={props.options}
+        dropdownClassName={props.options.length > 6 ? "bigDropdown" : ""}
         placeholder={props.placeholder || t("phHolder")}
         style={{
           width: props.width || 300,
