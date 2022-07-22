@@ -8,7 +8,7 @@ file=open("data.json")
 file=json.load(file)
 
 def get_all_tasks(db: Session):
-    job = db.query(DbJob.name,DbJob.job_id).filter(DbJob.job_id.in_()).all()
+    job = db.query(DbJob.name,DbJob.job_id).all()
     job = [{
       "value": data["name"],
       "label": data["name"],
