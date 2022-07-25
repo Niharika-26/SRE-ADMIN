@@ -1,6 +1,7 @@
 from sqlalchemy.orm.session import Session
+from sqlalchemy.sql import func
 from schemas import TaskBase
-from db.models import DbEnvironment,DbJob,DbJobEnvironment
+from db.models import DbEnvironment,DbJob,DbJobEnvironment,DbTask
 from datetime import date, timedelta
 import json
 
@@ -14,7 +15,8 @@ def get_all_tasks(db: Session):
       "label": data["name"],
       "key": data['job_id']
     } for data in job]
-    return {"jobs": job, "tasks":file}
+    tasks = tasks = db.query(DbEnvironment.name.label("environmentname"),DbJob.name.label("taskname"),func.to_char(DbTask.last_modified_date,"DD/MM/YY HH:MI:SS").label("modifiedat"),func.to_char(DbTask.due_date,"DD/MM/YY HH:MI:SS").label("dueat"),DbTask.status,DbTask.resultant_data.label('responsedata')).filter(DbJobEnvironment.job_environment_id ==DbTask.createdby_job_environment_id ).filter(DbTask.createdby_job_environment_id=="ca89ae2e-74ed-4eb0-9c63-6f5f9f3f4142").all()
+    return {"jobs": job, "tasks":tasks}
 
 def get_environments(db: Session, request:str):
     environment = db.query(DbJobEnvironment.environment_id).filter(DbJobEnvironment.job_id == request).all()

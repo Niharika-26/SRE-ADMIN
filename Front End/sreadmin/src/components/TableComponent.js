@@ -54,6 +54,7 @@ function TableComponent(props) {
       key: "modifiedat",
       align: "center",
       width: 200,
+      // render: (val) => val.toFormat("MM/dd/yyyy h:mm a"),
     },
     {
       title: t("c7"),
@@ -65,14 +66,18 @@ function TableComponent(props) {
         let color = "blue";
         val = val.toLowerCase();
 
-        if (val === "pending") {
+        if (val.trim() === "p") {
           color = "yellow";
-        } else if (val === "in progress") {
+          val = "pending";
+        } else if (val === "i") {
           color = "blue";
-        } else if (val === "failed") {
+          val = "in progress";
+        } else if (val === "f") {
           color = "red";
+          val = "failed";
         } else {
           color = "green";
+          val = "success";
         }
 
         return (
@@ -121,10 +126,8 @@ function TableComponent(props) {
               size: "default",
               onChange(current) {
                 setPage(current);
-
               },
             }}
-            
           ></Table>
         </div>
       </div>
