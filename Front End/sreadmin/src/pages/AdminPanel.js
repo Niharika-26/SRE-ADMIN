@@ -15,8 +15,8 @@ const AdminPanel = () => {
 
   const scheduleHandler = (record) => {
     asyncPost(
-      record.taskname,
-      record.environmentname,
+      record.jobid,
+      record.environmentid,
       setData,
       setSearchData,
       setIsLoading,
