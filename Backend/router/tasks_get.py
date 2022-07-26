@@ -18,6 +18,3 @@ def get_tasks(db: Session = Depends(get_db)):
 @router.get('/{jobid}/environments',)
 def get_tasks(jobid:str,db: Session = Depends(get_db)):
     return db_tasks.get_environments(db,jobid)
-
-
-

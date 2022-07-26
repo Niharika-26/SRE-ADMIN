@@ -2,8 +2,8 @@ from pydantic import BaseModel
 from typing import Optional,List
 
 class TaskBase(BaseModel):
-    taskname: str
-    environmentname: str
+    job_id: str
+    environment_id: str
     currenttask: Optional[dict]
 
 class Task(BaseModel):

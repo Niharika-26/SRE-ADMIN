@@ -14,7 +14,6 @@ const ModalComponent = (props) => {
   const [selectedJob, setSelectedJob] = useState(undefined);
   const [environments, setEnvironments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(selectedEnvironment);
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -43,8 +42,8 @@ const ModalComponent = (props) => {
     ) {
       setIsModalVisible(false);
       asyncPost(
-        selectedJob.value,
-        selectedEnvironment.value,
+        selectedJob.key,
+        selectedEnvironment.key,
         props.setData,
         props.setSearchData,
         props.setIsLoading
@@ -119,7 +118,7 @@ const ModalComponent = (props) => {
                 style={{
                   display: "inline-block",
                   marginTop: 5,
-                  marginLeft: 150,
+                  marginLeft: 190,
                 }}
                 size="small"
               />

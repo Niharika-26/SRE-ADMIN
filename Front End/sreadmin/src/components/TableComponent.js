@@ -54,7 +54,6 @@ function TableComponent(props) {
       key: "modifiedat",
       align: "center",
       width: 200,
-      // render: (val) => val.toFormat("MM/dd/yyyy h:mm a"),
     },
     {
       title: t("c7"),

@@ -9,6 +9,7 @@ const Dropdown = (props) => {
       props.setSelectedOption(undefined);
     } else {
       props.setSelectedOption(label[0]);
+
       props.setIsError({});
     }
   };
