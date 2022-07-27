@@ -19,8 +19,7 @@ const AdminPanel = () => {
       record.environmentid,
       setData,
       setSearchData,
-      setIsLoading,
-      record
+      setIsLoading
     );
   };
 
