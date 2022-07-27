@@ -22,14 +22,19 @@ function TableComponent(props) {
       title: t("c2"),
       dataIndex: "taskname",
       key: "taskname",
-      align: "center",
+      align: "left",
+      sorter: (a, b) => {
+        return a.taskname.localeCompare(b.taskname);
+      },
     },
     {
       title: t("c3"),
       dataIndex: "environmentname",
       key: "environmentname",
       align: "center",
-      // width: 140,
+      sorter: (a, b) => {
+        return a.environmentname.localeCompare(b.environmentname);
+      },
     },
 
     {
@@ -46,6 +51,9 @@ function TableComponent(props) {
       dataIndex: "dueat",
       key: "dueat",
       align: "center",
+      sorter: (a, b) => {
+        return a.dueat.localeCompare(b.dueat);
+      },
     },
 
     {
@@ -54,6 +62,9 @@ function TableComponent(props) {
       key: "modifiedat",
       align: "center",
       width: 200,
+      sorter: (a, b) => {
+        return a.modifiedat.localeCompare(b.modifiedat);
+      },
     },
     {
       title: t("c7"),

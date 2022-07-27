@@ -26,6 +26,7 @@
 .ant-table-thead > tr > th {
   background: #0474cc;
   color: white;
+  text-align: center !important;
 }
 tr:nth-child(odd) {
   background: #eff3f9;

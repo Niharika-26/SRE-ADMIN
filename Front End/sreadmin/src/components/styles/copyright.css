@@ -1,32 +1,31 @@
-.foot{
-    background-color: #0474cc;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 5%;
-    text-align: center;
-    padding-top: 7.5px;
-
+.foot {
+  background-color: #0474cc;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  text-align: center;
+  padding-top: 7.5px;
 }
 
-.copyright{
-    color: WHITE;
-    width: 50%;
-    text-align: left;
-    font-style: oblique;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: inline-block;
-    padding-left: 1%;
-    margin: 0;
+.copyright {
+  color: WHITE;
+  width: 50%;
+  text-align: left;
+  font-style: oblique;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: inline-block;
+  padding-left: 1%;
+  margin: 0;
 }
 
-.credits{
-    color: WHITE;
-    width: 50%;
-    text-align: right;
-    font-style: oblique;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: inline-block;
-    padding-right: 1%;
-    margin: 0;
+.credits {
+  color: WHITE;
+  width: 50%;
+  text-align: right;
+  font-style: oblique;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: inline-block;
+  padding-right: 1%;
+  margin: 0;
 }
