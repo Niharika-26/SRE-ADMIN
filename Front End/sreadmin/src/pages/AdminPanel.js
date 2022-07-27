@@ -20,24 +20,24 @@ const AdminPanel = () => {
       record.environmentid,
       setData,
       setSearchData,
-      setIsLoading,
-      record
+      setIsLoading
     );
   };
 
   const handleSearch = (value) => {
-    const filteredTask = searchData.filter((tasks) => {
+    const filteredTask = data.filter((tasks) => {
       return tasks.taskname
         .toLowerCase()
         .startsWith(value.toLowerCase().trim());
     });
     if (value.length < 1) {
-      setData(searchData);
+      setSearchData(data);
     } else {
-      setData(filteredTask);
+      setSearchData(filteredTask);
     }
   };
   return (
+<<<<<<< HEAD
     <div className="container">
       <Fragment>
         <Header
@@ -56,6 +56,24 @@ const AdminPanel = () => {
         <Copyright />
       </Fragment>
     </div>
+=======
+    <Fragment>
+      <Header
+        jobs={jobs}
+        setData={setData}
+        setSearchData={setSearchData}
+        setIsLoading={setIsLoading}
+        handleSearch={handleSearch}
+        isLoading={isLoading}
+      />
+      <TableComponent
+        data={searchData}
+        isLoading={isLoading}
+        scheduleHandler={scheduleHandler}
+      />
+      <Copyright />
+    </Fragment>
+>>>>>>> f7c4c3f79bb310b69adb3f93fc50e4698547e349
   );
 };
 
