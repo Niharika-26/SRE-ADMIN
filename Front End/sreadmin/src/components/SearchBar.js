@@ -5,7 +5,6 @@ import "./styles/SearchBar.css";
 const { Search } = Input;
 
 const SearchBar = (props) => {
-  const onSearch = (value) => props.handleSearch(value);
   const { t } = useTranslation();
   return (
     <div className="searchbar">
@@ -14,7 +13,7 @@ const SearchBar = (props) => {
         allowClear
         enterButton
         size="middle"
-        onSearch={onSearch}
+        onSearch={(value) => props.handleSearch(value)}
       />
     </div>
   );

@@ -25,15 +25,15 @@ const AdminPanel = () => {
   };
 
   const handleSearch = (value) => {
-    const filteredTask = searchData.filter((tasks) => {
+    const filteredTask = data.filter((tasks) => {
       return tasks.taskname
         .toLowerCase()
         .startsWith(value.toLowerCase().trim());
     });
     if (value.length < 1) {
-      setData(searchData);
+      setSearchData(data);
     } else {
-      setData(filteredTask);
+      setSearchData(filteredTask);
     }
   };
   return (
@@ -47,7 +47,7 @@ const AdminPanel = () => {
         isLoading={isLoading}
       />
       <TableComponent
-        data={data}
+        data={searchData}
         isLoading={isLoading}
         scheduleHandler={scheduleHandler}
       />
