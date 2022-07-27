@@ -1,6 +1,4 @@
 .modalbtn {
   display: inline-block;
-  position: absolute;
-  right: 1%;
-  margin-top: 15px;
+  margin: 0;
 }

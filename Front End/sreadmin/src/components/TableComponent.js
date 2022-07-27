@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Table, Button, Tag } from "antd";
 import { HistoryOutlined } from "@ant-design/icons";
@@ -119,7 +119,6 @@ function TableComponent(props) {
   ];
 
   return (
-    <Fragment>
       <div className="tableout">
         <div className="tablein">
           <Table
@@ -141,7 +140,6 @@ function TableComponent(props) {
           ></Table>
         </div>
       </div>
-    </Fragment>
   );
 }
 
