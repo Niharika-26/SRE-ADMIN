@@ -36,6 +36,7 @@ const ModalComponent = (props) => {
   const handleOk = () => {
     if (
       selectedJob !== undefined &&
+      selectedEnvironment !== undefined &&
       selectedEnvironment !== "" &&
       selectedJob.value !== "" &&
       selectedEnvironment.value !== ""
@@ -50,7 +51,11 @@ const ModalComponent = (props) => {
       );
       setIsError({});
     } else {
-      if (selectedEnvironment === "" || selectedEnvironment.value === "") {
+      if (
+        selectedEnvironment === undefined ||
+        selectedEnvironment === "" ||
+        selectedEnvironment.value === ""
+      ) {
         setIsError({ environment: true });
       }
       if (selectedJob === undefined || selectedJob.value === "") {
