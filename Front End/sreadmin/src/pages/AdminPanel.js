@@ -28,7 +28,7 @@ const AdminPanel = () => {
     const filteredTask = data.filter((tasks) => {
       return tasks.taskname
         .toLowerCase()
-        .startsWith(value.toLowerCase().trim());
+        .includes(value.toLowerCase().trim());
     });
     if (value.length < 1) {
       setSearchData(data);
