@@ -26,6 +26,7 @@ def get_environments(db: Session, request:str):
     return environment
 
 
+
 def create_task(db: Session,request: TaskBase):
     db.execute(f"select * from public.create_new_task('{request.job_id}','{request.environment_id}')")
     db.commit()
