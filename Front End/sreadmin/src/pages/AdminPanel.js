@@ -1,45 +1,45 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import TableComponent from "../components/TableComponent";
 import { asyncFetch, asyncPost } from "../hooks/use-api";
 import Copyright from "../components/copyright";
+import "./AdminPanel.css";
 
 const AdminPanel = () => {
   const [data, setData] = useState([]);
   const [searchData, setSearchData] = useState([]);
-  const [lookUp, setLookUp] = useState({});
+  const [jobs, setJobs] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    asyncFetch(setIsLoading, setData, setSearchData, setLookUp);
+    asyncFetch(setIsLoading, setData, setSearchData, setJobs);
   }, []);
 
   const scheduleHandler = (record) => {
     asyncPost(
-      record.taskname,
-      record.environmentname,
+      record.jobid,
+      record.environmentid,
       setData,
       setSearchData,
-      setIsLoading,
-      record
+      setIsLoading
     );
   };
 
   const handleSearch = (value) => {
-    const filteredTask = searchData.filter((tasks) => {
+    const filteredTask = data.filter((tasks) => {
       return tasks.taskname
         .toLowerCase()
         .startsWith(value.toLowerCase().trim());
     });
     if (value.length < 1) {
-      setData(searchData);
+      setSearchData(data);
     } else {
-      setData(filteredTask);
+      setSearchData(filteredTask);
     }
   };
   return (
-    <Fragment>
+    <div className="container">
       <Header
-        data={lookUp}
+        jobs={jobs}
         setData={setData}
         setSearchData={setSearchData}
         setIsLoading={setIsLoading}
@@ -47,12 +47,12 @@ const AdminPanel = () => {
         isLoading={isLoading}
       />
       <TableComponent
-        data={data}
+        data={searchData}
         isLoading={isLoading}
         scheduleHandler={scheduleHandler}
       />
       <Copyright />
-    </Fragment>
+    </div>
   );
 };
 

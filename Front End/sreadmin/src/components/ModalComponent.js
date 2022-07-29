@@ -1,35 +1,66 @@
-import { Button, Modal } from "antd";
+import { Button, Modal, Spin } from "antd";
 import { useTranslation } from "react-i18next";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { EyeOutlined } from "@ant-design/icons";
 import Dropdown from "./Dropdown";
 import "./styles/ModalComponent.css";
-import { asyncPost } from "../hooks/use-api";
+import { asyncPost, asyncFetchEnvironments } from "../hooks/use-api";
 
 const ModalComponent = (props) => {
   const { t } = useTranslation();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [selectedEnvironment, setSelectedEnvironment] = useState("");
-  const [selectedJob, setSelectedJob] = useState("");
-
+  const [isError, setIsError] = useState({});
+  const [selectedEnvironment, setSelectedEnvironment] = useState(undefined);
+  const [selectedJob, setSelectedJob] = useState(undefined);
+  const [environments, setEnvironments] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const showModal = () => {
     setIsModalVisible(true);
   };
 
+  useEffect(() => {
+    if (selectedJob !== undefined && selectedJob.value !== "") {
+      asyncFetchEnvironments(
+        selectedJob.key,
+        setEnvironments,
+        setIsError,
+        setIsLoading
+      );
+    }
+    if (selectedJob === undefined || selectedJob.value !== "") {
+      setEnvironments([]);
+      setSelectedEnvironment("");
+    }
+  }, [selectedJob]);
+
   const handleOk = () => {
-    if (selectedEnvironment !== "" && selectedJob !== "") {
+    if (
+      selectedJob !== undefined &&
+      selectedEnvironment !== undefined &&
+      selectedEnvironment !== "" &&
+      selectedJob.value !== "" &&
+      selectedEnvironment.value !== ""
+    ) {
       setIsModalVisible(false);
       asyncPost(
-        selectedJob,
-        selectedEnvironment,
+        selectedJob.key,
+        selectedEnvironment.key,
         props.setData,
         props.setSearchData,
         props.setIsLoading
       );
-      setIsError(false);
+      setIsError({});
     } else {
-      setIsError(true);
+      if (
+        selectedEnvironment === undefined ||
+        selectedEnvironment === "" ||
+        selectedEnvironment.value === ""
+      ) {
+        setIsError({ environment: true });
+      }
+      if (selectedJob === undefined || selectedJob.value === "") {
+        setIsError({ job: true });
+      }
     }
   };
 
@@ -50,13 +81,13 @@ const ModalComponent = (props) => {
           {t("buttonText")}
         </Button>
         <Modal
+          loading="true"
           footer={[
             <Button
               style={{
-                width: "100%",
-                height: 50,
-                fontSize: 20,
-                marginTop: -10,
+                width: "30%",
+                height: 35,
+                fontSize: 15,
               }}
               key="submit"
               type="primary"
@@ -70,27 +101,52 @@ const ModalComponent = (props) => {
           onCancel={handleCancel}
           style={{ textAlign: "center" }}
         >
-          {isError && <p>Please Select Environment and Job</p>}
-          <div style={{ textAlign: "left" }}>
-            <p style={{ display: "inline-block", marginTop: 5 }}>
-              {" "}
-              {t("phEnvironment")}
-            </p>
-            <Dropdown
-              name="Environment"
-              options={props.data.environments}
-              setSelectedOption={setSelectedEnvironment}
-            />
-          </div>
-          <div style={{ textAlign: "left", marginTop: 20 }}>
-            <p style={{ display: "inline-block", marginTop: 5 }}>
+          <div style={{ textAlign: "left", marginBottom: 20 }}>
+            <p
+              style={{
+                display: "inline-block",
+                marginBottom: 5,
+              }}
+            >
               {t("phJob")}
             </p>
             <Dropdown
+              setIsError={setIsError}
+              isError={isError.job}
               name="Job"
-              options={props.data.jobs}
+              options={props.jobs}
               setSelectedOption={setSelectedJob}
             />
+          </div>
+          <div style={{ textAlign: "left" }}>
+            <p style={{ display: "inline-block", marginBottom: 5 }}>
+              {" "}
+              {t("phEnvironment")}
+            </p>
+            {isLoading ? (
+              <Spin
+                style={{
+                  display: "inline-block",
+                  marginTop: 5,
+                  marginLeft: 190,
+                }}
+                size="small"
+              />
+            ) : (
+              <Dropdown
+                setIsError={setIsError}
+                isError={isError.environment}
+                name="Environment"
+                value={
+                  selectedEnvironment === undefined
+                    ? ""
+                    : selectedEnvironment.value
+                }
+                disabled={environments.length === 0}
+                options={environments}
+                setSelectedOption={setSelectedEnvironment}
+              />
+            )}
           </div>
         </Modal>
       </div>

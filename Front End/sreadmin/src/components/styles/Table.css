@@ -1,9 +1,11 @@
 .tableout {
-  padding-top: 2rem;
-  background-color: #3e4444;
-  position: relative;
+  background-color: #e1e8ed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   margin: 0;
-  height: 90vh;
+  height:calc(100vh - 95px);
 }
 
 .tablein {
@@ -11,7 +13,25 @@
   width: 90%;
   margin: 0;
   display: inline-block;
-  position: absolute;
-  background-color: #3e4444;
-  left: 5%;
+  background-color: #e1e8ed;
+}
+
+.ant-table-body::-webkit-scrollbar {
+  display: none;
+}
+
+.ant-table-body {
+  min-height: 30.625rem;
+}
+.ant-table-thead > tr > th {
+  background: #0474cc;
+  color: white;
+  text-align: center !important;
+}
+tr:nth-child(odd) {
+  background: #eff3f9;
+}
+
+.ant-table{
+  size:auto;
 }
