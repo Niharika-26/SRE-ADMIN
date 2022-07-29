@@ -47,7 +47,7 @@ const AdminPanel = () => {
         isLoading={isLoading}
       />
       <TableComponent
-        data={data}
+        data={searchData}
         isLoading={isLoading}
         scheduleHandler={scheduleHandler}
       />

@@ -102,7 +102,12 @@ const ModalComponent = (props) => {
           style={{ textAlign: "center" }}
         >
           <div style={{ textAlign: "left", marginBottom: 20 }}>
-            <p style={{ display: "inline-block", marginBottom: 5 }}>
+            <p
+              style={{
+                display: "inline-block",
+                marginBottom: 5,
+              }}
+            >
               {t("phJob")}
             </p>
             <Dropdown
