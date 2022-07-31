@@ -38,6 +38,7 @@ function TableComponent(props) {
       title: t("c2"),
       dataIndex: "taskname",
       key: "taskname",
+      width: 283.138,
       align: "left",
       width: "18vw",
       sorter: (a, b) => {
@@ -46,6 +47,7 @@ function TableComponent(props) {
     },
     {
       title: t("c3"),
+      width: 283.138,
       dataIndex: "environmentname",
       key: "environmentname",
       align: "center",

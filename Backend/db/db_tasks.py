@@ -7,7 +7,7 @@ import json
 
 
 def get_all_tasks(db: Session):
-    job = db.execute('select * from public.get_admin_job()').all()
+    job = db.execute('select * from get_admin_job()').all()
     job = [{
       "value": data["name"],
       "label": data["name"],
@@ -17,7 +17,7 @@ def get_all_tasks(db: Session):
     return {"jobs": job,"tasks":tasks }
 
 def get_environments(db: Session, request:str):
-    environment = db.execute(f"select * from public.get_admin_environment_list('{request}')").all()
+    environment = db.execute(f"select * from get_admin_environment('{request}')").all()
     environment = environment = [{
       "value": data["name"],
       "label": data["name"],
@@ -29,7 +29,7 @@ def get_environments(db: Session, request:str):
 def create_task(db: Session,request: TaskBase):
     job_environment_id = db.query(DbJobEnvironment.job_environment_id).filter(DbJobEnvironment.job_id == request.job_id).filter(DbJobEnvironment.environment_id == request.environment_id).first()
     job_environment_id = job_environment_id["job_environment_id"]
-    db.execute(f"select * from public.create_admin_task('{job_environment_id}')")
+    db.execute(f"select * from create_admin_task('{job_environment_id}')")
     db.commit()
-    tasks = db.execute("select * from public.get_admin_task()").all()
+    tasks = db.execute("select * from get_admin_task()").all()
     return tasks
