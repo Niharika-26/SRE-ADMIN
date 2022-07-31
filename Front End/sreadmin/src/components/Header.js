@@ -15,7 +15,7 @@ const Header = (props) => {
             alt="Logo"
           />
 
-          <h1 className="project-title"> {t("Title")} </h1>
+          <h1 className="project-title">{t("Title")}</h1>
 
           <SearchBar handleSearch={props.handleSearch} />
           
