@@ -4,14 +4,10 @@
   justify-content: center;
   align-items: top;
   margin: 0;
-<<<<<<< HEAD
-  min-height:calc(100vh - 95px);
+  min-height: calc(100vh - 95px);
   max-height: fit-content;
   padding-top: 2.25rem;
   padding-bottom: 1rem;
-=======
-  height: calc(100vh - 95px);
->>>>>>> 5c8173f89e0017d244443146c217e09f0c47c918
 }
 
 .tablein {
@@ -24,7 +20,7 @@
 }
 .ant-table-body::-webkit-scrollbar {
   display: none;
-} 
+}
 
 .ant-table-body {
   min-height: 30.625rem;
@@ -37,4 +33,3 @@
 tr:nth-child(odd) {
   background: #eff3f9;
 }
-
