@@ -39,7 +39,7 @@ function TableComponent(props) {
       dataIndex: "taskname",
       key: "taskname",
       align: "left",
-      width: "25vw",
+      width: "18vw",
       sorter: (a, b) => {
         return a.taskname.localeCompare(b.taskname);
       },
@@ -49,7 +49,7 @@ function TableComponent(props) {
       dataIndex: "environmentname",
       key: "environmentname",
       align: "center",
-      width: "10vw",
+      width: "17vw",
       sorter: (a, b) => {
         return a.environmentname.localeCompare(b.environmentname);
       },
@@ -133,7 +133,7 @@ function TableComponent(props) {
       width: "6vw",
       render: (text, record) => (
         <Button
-          align="center"    
+          align="center"
           style={{ width: "100%" }}
           onClick={() => props.scheduleHandler(record)}
         >
@@ -144,27 +144,27 @@ function TableComponent(props) {
   ];
 
   return (
-      <div className="tableout">
-        <div className="tablein">
-          <Table
-            scroll={{ y: 500 }}
-            dataSource={props.data}
-            loading={props.isLoading}
-            columns={columns}
-            showSizeChanger="false"
-            size="small"
-            bordered
-            pagination={{
-              total: props.data.length,
-              showSizeChanger: false,
-              size: "default",
-              onChange(current) {
-                setPage(current);
-              },
-            }}
-          ></Table>
-        </div>
+    <div className="tableout">
+      <div className="tablein">
+        <Table
+          scroll={{ y: 500 }}
+          dataSource={props.data}
+          loading={props.isLoading}
+          columns={columns}
+          showSizeChanger="false"
+          size="small"
+          bordered
+          pagination={{
+            total: props.data.length,
+            showSizeChanger: false,
+            size: "default",
+            onChange(current) {
+              setPage(current);
+            },
+          }}
+        ></Table>
       </div>
+    </div>
   );
 }
 
