@@ -5,7 +5,7 @@
   align-items: center;
   align-content: center;
   margin: 0;
-  height:calc(100vh - 95px);
+  height: calc(100vh - 95px);
 }
 
 .tablein {
@@ -32,6 +32,6 @@ tr:nth-child(odd) {
   background: #eff3f9;
 }
 
-.ant-table{
-  size:auto;
+.ant-table {
+  size: auto;
 }

@@ -38,6 +38,7 @@ function TableComponent(props) {
       title: t("c2"),
       dataIndex: "taskname",
       key: "taskname",
+      width: 283.138,
       align: "left",
       sorter: (a, b) => {
         return a.taskname.localeCompare(b.taskname);
@@ -45,6 +46,7 @@ function TableComponent(props) {
     },
     {
       title: t("c3"),
+      width: 283.138,
       dataIndex: "environmentname",
       key: "environmentname",
       align: "center",
@@ -141,27 +143,27 @@ function TableComponent(props) {
   ];
 
   return (
-      <div className="tableout">
-        <div className="tablein">
-          <Table
-            scroll={{ y: 500 }}
-            dataSource={props.data}
-            loading={props.isLoading}
-            columns={columns}
-            showSizeChanger="false"
-            size="small"
-            bordered
-            pagination={{
-              total: props.data.length,
-              showSizeChanger: false,
-              size: "default",
-              onChange(current) {
-                setPage(current);
-              },
-            }}
-          ></Table>
-        </div>
+    <div className="tableout">
+      <div className="tablein">
+        <Table
+          scroll={{ y: 500 }}
+          dataSource={props.data}
+          loading={props.isLoading}
+          columns={columns}
+          showSizeChanger="false"
+          size="small"
+          bordered
+          pagination={{
+            total: props.data.length,
+            showSizeChanger: false,
+            size: "default",
+            onChange(current) {
+              setPage(current);
+            },
+          }}
+        ></Table>
       </div>
+    </div>
   );
 }
 
