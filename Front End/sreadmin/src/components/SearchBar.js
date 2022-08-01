@@ -4,9 +4,7 @@ import { useTranslation } from "react-i18next";
 import "./styles/SearchBar.css";
 const { Search } = Input;
 
-
 const SearchBar = (props) => {
-  
   // For globalization
   const { t } = useTranslation();
 

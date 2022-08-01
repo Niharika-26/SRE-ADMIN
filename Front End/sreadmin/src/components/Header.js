@@ -4,9 +4,7 @@ import ModalComponent from "./ModalComponent";
 import { useTranslation } from "react-i18next";
 import "./styles/Header.css";
 
-
 const Header = (props) => {
-
   // For globalization
   const { t } = useTranslation();
 
@@ -20,7 +18,7 @@ const Header = (props) => {
         />
 
         <h1 className="project-title">{t("Title")}</h1>
-        
+
         <SearchBar handleSearch={props.handleSearch} />
 
         <ModalComponent

@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import "./styles/Dropdown.css";
 
 const Dropdown = (props) => {
-
   // For globalization
   const { t } = useTranslation();
 

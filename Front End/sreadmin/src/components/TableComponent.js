@@ -5,7 +5,6 @@ import { HistoryOutlined } from "@ant-design/icons";
 import ModalComponent from "./ModalComponent";
 import "./styles/Table.css";
 
-
 // Function to format date
 const dateFormat = (val) => {
   val = new Date(val);
@@ -24,13 +23,12 @@ const dateFormat = (val) => {
   return val;
 };
 
-
 const TableComponent = (props) => {
   //For Globalization
   const { t } = useTranslation();
   //For Pagination
   const [page, setPage] = useState(1);
-//Defining columns of Table
+  //Defining columns of Table
   const columns = [
     {
       title: t("c1"),
@@ -176,6 +174,6 @@ const TableComponent = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default TableComponent;

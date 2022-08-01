@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from db.database import get_db
 from db import db_tasks
-from schemas import LookUpData
+from schemas import LookUpData,EnvironmentListData
 
 # Create a FastAPI subrouter
 router = APIRouter(
@@ -16,6 +16,6 @@ def get_tasks(db: Session = Depends(get_db)):
     return db_tasks.get_all_tasks(db)
 
 #To handle environment list get request
-@router.get('/{jobid}/environments')
+@router.get('/{jobid}/environments',response_model = EnvironmentListData)
 def get_tasks(jobid:str,db: Session = Depends(get_db)):
     return db_tasks.get_environments(db,jobid)

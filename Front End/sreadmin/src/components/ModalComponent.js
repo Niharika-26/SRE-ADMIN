@@ -7,7 +7,6 @@ import "./styles/ModalComponent.css";
 import { asyncPost, asyncFetchEnvironments } from "../hooks/use-api";
 
 const ModalComponent = (props) => {
-
   // For globalization
   const { t } = useTranslation();
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -21,7 +20,6 @@ const ModalComponent = (props) => {
   const showModal = () => {
     setIsModalVisible(true);
   };
-
 
   // For sending request to get linked environment list
   useEffect(() => {

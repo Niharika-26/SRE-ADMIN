@@ -1,5 +1,4 @@
 from sqlalchemy.orm.session import Session
-from sqlalchemy.sql import func
 from schemas import TaskBase
 from db.models import DbJobEnvironment
 
@@ -16,13 +15,13 @@ def get_all_tasks(db: Session):
 
 # Function to get all environments for a job
 def get_environments(db: Session, request:str):
-    environment = db.execute(f"select * from get_admin_environment('{request}')").all()
-    environment = environment = [{
+    environments = db.execute(f"select * from get_admin_environment('{request}')").all()
+    environments = environment = [{
       "value": data["name"],
       "label": data["name"],
       "key":data["environment_id"]
-    } for data in environment]
-    return environment
+    } for data in environments]
+    return {"environments": environments}
 
 # Function to create a task
 def create_task(db: Session,request: TaskBase):
@@ -31,4 +30,4 @@ def create_task(db: Session,request: TaskBase):
     db.execute(f"select * from create_admin_task('{job_environment_id}')")
     db.commit()
     tasks = db.execute("select * from get_admin_task()").all()
-    return tasks
+    return {"tasks":tasks}
