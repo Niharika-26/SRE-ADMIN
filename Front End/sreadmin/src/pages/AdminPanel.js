@@ -11,6 +11,11 @@ const AdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     asyncFetch(setIsLoading, setData, setSearchData, setJobs);
+    // const interval = setInterval(() => {
+    // asyncFetch(setIsLoading, setData, setSearchData, setJobs);
+    // }, 120000);
+
+    // return () => clearInterval(interval);
   }, []);
 
   const scheduleHandler = (record) => {
@@ -47,7 +52,7 @@ const AdminPanel = () => {
       />
       <TableComponent
         data={searchData}
-        isLoading={isLoading} 
+        isLoading={isLoading}
         scheduleHandler={scheduleHandler}
       />
       <Copyright />
