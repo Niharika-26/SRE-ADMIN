@@ -9,6 +9,8 @@ const AdminPanel = () => {
   const [searchData, setSearchData] = useState([]);
   const [jobs, setJobs] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
+  // Fetch Table Data and Jobs
   useEffect(() => {
     asyncFetch(setIsLoading, setData, setSearchData, setJobs);
     // const interval = setInterval(() => {
@@ -18,6 +20,8 @@ const AdminPanel = () => {
     // return () => clearInterval(interval);
   }, []);
 
+
+// To Handle Reschedules
   const scheduleHandler = (record) => {
     asyncPost(
       record.jobid,
@@ -28,6 +32,8 @@ const AdminPanel = () => {
     );
   };
 
+
+// To Search Data through search bar
   const handleSearch = (value) => {
     const filteredTask = data.filter((tasks) => {
       return tasks.taskname
@@ -40,6 +46,8 @@ const AdminPanel = () => {
       setSearchData(filteredTask);
     }
   };
+
+  
   return (
     <Fragment>
       <Header

@@ -32,8 +32,8 @@ export const asyncPost = (
   })
     .then((response) => response.json())
     .then((json) => {
-      setTableData(json);
-      setSearchedData(json);
+      setTableData(json.tasks);
+      setSearchedData(json.tasks);
       setIsLoading(false);
     })
     .catch((error) => {
@@ -51,7 +51,7 @@ export const asyncFetchEnvironments = (
   fetch(`http://localhost:8000/data/${jobName}/environments`)
     .then((response) => response.json())
     .then((json) => {
-      setEnvironments(json);
+      setEnvironments(json.environments);
       setIsError(false);
       setIsLoading(false);
     })

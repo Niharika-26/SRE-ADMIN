@@ -4,6 +4,10 @@ import { useTranslation } from "react-i18next";
 import "./styles/Dropdown.css";
 
 const Dropdown = (props) => {
+  // For globalization
+  const { t } = useTranslation();
+
+  // To handle input selection
   const changeHandler = (value, label) => {
     if (value === undefined) {
       props.setSelectedOption(undefined);
@@ -12,7 +16,6 @@ const Dropdown = (props) => {
       props.setIsError({});
     }
   };
-  const { t } = useTranslation();
 
   return (
     <Fragment>

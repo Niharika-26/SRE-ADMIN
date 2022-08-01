@@ -5,7 +5,9 @@ import "./styles/SearchBar.css";
 const { Search } = Input;
 
 const SearchBar = (props) => {
+  // For globalization
   const { t } = useTranslation();
+
   return (
     <div className="searchbar">
       <Search

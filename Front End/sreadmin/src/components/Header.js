@@ -3,8 +3,11 @@ import SearchBar from "./SearchBar";
 import ModalComponent from "./ModalComponent";
 import { useTranslation } from "react-i18next";
 import "./styles/Header.css";
+
 const Header = (props) => {
+  // For globalization
   const { t } = useTranslation();
+
   return (
     <Fragment>
       <div className="tab">
