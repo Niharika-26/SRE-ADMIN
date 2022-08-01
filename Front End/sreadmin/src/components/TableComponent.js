@@ -1,10 +1,26 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Table, Button, Tag } from "antd";
 import { HistoryOutlined } from "@ant-design/icons";
 import ModalComponent from "./ModalComponent";
 import "./styles/Table.css";
 
+const dateFormat = (val) => {
+  val = new Date(val);
+  val =
+    val.getDate() +
+    "/" +
+    (val.getMonth() + 1) +
+    "/" +
+    val.getFullYear() +
+    " " +
+    val.getHours() +
+    ":" +
+    val.getMinutes() +
+    ":" +
+    val.getSeconds();
+  return val;
+};
 function TableComponent(props) {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
@@ -54,6 +70,9 @@ function TableComponent(props) {
       sorter: (a, b) => {
         return a.dueat.localeCompare(b.dueat);
       },
+      render: (val) => {
+        return dateFormat(val);
+      },
     },
 
     {
@@ -64,6 +83,9 @@ function TableComponent(props) {
       width: 200,
       sorter: (a, b) => {
         return a.modifiedat.localeCompare(b.modifiedat);
+      },
+      render: (val) => {
+        return dateFormat(val);
       },
     },
     {
@@ -119,7 +141,6 @@ function TableComponent(props) {
   ];
 
   return (
-    <Fragment>
       <div className="tableout">
         <div className="tablein">
           <Table
@@ -141,7 +162,6 @@ function TableComponent(props) {
           ></Table>
         </div>
       </div>
-    </Fragment>
   );
 }
 

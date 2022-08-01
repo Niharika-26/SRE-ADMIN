@@ -18,14 +18,12 @@ export const asyncPost = (
   environment_id,
   setTableData,
   setSearchedData,
-  setIsLoading,
-  currenttask
+  setIsLoading
 ) => {
   setIsLoading(true);
   const body = JSON.stringify({
     job_id,
     environment_id,
-    currenttask,
   });
   fetch("http://localhost:8000/data", {
     method: "POST",

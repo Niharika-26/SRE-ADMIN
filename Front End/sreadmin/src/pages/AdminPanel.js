@@ -1,8 +1,9 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import TableComponent from "../components/TableComponent";
 import { asyncFetch, asyncPost } from "../hooks/use-api";
 import Copyright from "../components/copyright";
+import "./AdminPanel.css";
 
 const AdminPanel = () => {
   const [data, setData] = useState([]);
@@ -19,8 +20,7 @@ const AdminPanel = () => {
       record.environmentid,
       setData,
       setSearchData,
-      setIsLoading,
-      record
+      setIsLoading
     );
   };
 
@@ -37,7 +37,7 @@ const AdminPanel = () => {
     }
   };
   return (
-    <Fragment>
+    <div className="container">
       <Header
         jobs={jobs}
         setData={setData}
@@ -52,7 +52,7 @@ const AdminPanel = () => {
         scheduleHandler={scheduleHandler}
       />
       <Copyright />
-    </Fragment>
+    </div>
   );
 };
 
