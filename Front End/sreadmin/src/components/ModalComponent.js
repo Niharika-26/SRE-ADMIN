@@ -105,7 +105,7 @@ const ModalComponent = (props) => {
             <p
               style={{
                 display: "inline-block",
-                marginBottom: 5,
+                marginTop: 5,
               }}
             >
               {t("phJob")}
@@ -119,7 +119,7 @@ const ModalComponent = (props) => {
             />
           </div>
           <div style={{ textAlign: "left" }}>
-            <p style={{ display: "inline-block", marginBottom: 5 }}>
+            <p style={{ display: "inline-block", marginTop: 5 }}>
               {" "}
               {t("phEnvironment")}
             </p>

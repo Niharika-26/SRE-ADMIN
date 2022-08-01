@@ -38,20 +38,18 @@ function TableComponent(props) {
       title: t("c2"),
       dataIndex: "taskname",
       key: "taskname",
-      width: 283.138,
       align: "left",
-      width: "18vw",
+      width: "20vw",
       sorter: (a, b) => {
         return a.taskname.localeCompare(b.taskname);
       },
     },
     {
       title: t("c3"),
-      width: 283.138,
       dataIndex: "environmentname",
       key: "environmentname",
       align: "center",
-      width: "17vw",
+      width: "10vw",
       sorter: (a, b) => {
         return a.environmentname.localeCompare(b.environmentname);
       },
