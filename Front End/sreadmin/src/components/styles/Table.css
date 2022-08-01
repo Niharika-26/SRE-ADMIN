@@ -2,20 +2,22 @@
   background-color: #e1e8ed;
   display: flex;
   justify-content: center;
-  align-items: center;
-  align-content: center;
+  align-items: top;
   margin: 0;
-  height:calc(100vh - 95px);
+  min-height: calc(100vh - 95px);
+  max-height: fit-content;
+  padding-top: 2.25rem;
+  padding-bottom: 1rem;
 }
 
 .tablein {
   text-align: center;
-  width: 90%;
+  width: 95%;
   margin: 0;
   display: inline-block;
   background-color: #e1e8ed;
+  min-height: 35rem;
 }
-
 .ant-table-body::-webkit-scrollbar {
   display: none;
 }
@@ -30,8 +32,4 @@
 }
 tr:nth-child(odd) {
   background: #eff3f9;
-}
-
-.ant-table{
-  size:auto;
 }

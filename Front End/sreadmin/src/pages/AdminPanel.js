@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Header from "../components/Header";
 import TableComponent from "../components/TableComponent";
 import { asyncFetch, asyncPost } from "../hooks/use-api";
 import Copyright from "../components/copyright";
-import "./AdminPanel.css";
 
 const AdminPanel = () => {
   const [data, setData] = useState([]);
@@ -12,6 +11,11 @@ const AdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     asyncFetch(setIsLoading, setData, setSearchData, setJobs);
+    // const interval = setInterval(() => {
+    // asyncFetch(setIsLoading, setData, setSearchData, setJobs);
+    // }, 120000);
+
+    // return () => clearInterval(interval);
   }, []);
 
   const scheduleHandler = (record) => {
@@ -37,7 +41,7 @@ const AdminPanel = () => {
     }
   };
   return (
-    <div className="container">
+    <Fragment>
       <Header
         jobs={jobs}
         setData={setData}
@@ -52,7 +56,7 @@ const AdminPanel = () => {
         scheduleHandler={scheduleHandler}
       />
       <Copyright />
-    </div>
+    </Fragment>
   );
 };
 

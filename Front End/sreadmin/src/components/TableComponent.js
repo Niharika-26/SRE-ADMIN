@@ -30,7 +30,7 @@ function TableComponent(props) {
       title: t("c1"),
       dataIndex: "key",
       key: "key",
-      width: 70,
+      width: "4vw",
       align: "center",
       render: (value, item, index) => (page - 1) * 10 + index + 1,
     },
@@ -38,16 +38,20 @@ function TableComponent(props) {
       title: t("c2"),
       dataIndex: "taskname",
       key: "taskname",
+      width: 283.138,
       align: "left",
+      width: "18vw",
       sorter: (a, b) => {
         return a.taskname.localeCompare(b.taskname);
       },
     },
     {
       title: t("c3"),
+      width: 283.138,
       dataIndex: "environmentname",
       key: "environmentname",
       align: "center",
+      width: "17vw",
       sorter: (a, b) => {
         return a.environmentname.localeCompare(b.environmentname);
       },
@@ -58,12 +62,12 @@ function TableComponent(props) {
       dataIndex: "responsedata",
       key: "responsedata",
       align: "center",
-      width: 100,
+      width: "5vw",
       render: (value) => <ModalComponent responseData={value} />,
     },
     {
       title: t("c5"),
-      width: 200,
+      width: "8vw",
       dataIndex: "dueat",
       key: "dueat",
       align: "center",
@@ -80,7 +84,7 @@ function TableComponent(props) {
       dataIndex: "modifiedat",
       key: "modifiedat",
       align: "center",
-      width: 200,
+      width: "8vw",
       sorter: (a, b) => {
         return a.modifiedat.localeCompare(b.modifiedat);
       },
@@ -93,7 +97,7 @@ function TableComponent(props) {
       dataIndex: "status",
       key: "status",
       align: "center",
-      width: 115,
+      width: "7vw",
       render: (val) => {
         let color = "blue";
         val = val.toLowerCase();
@@ -114,7 +118,7 @@ function TableComponent(props) {
 
         return (
           <Tag
-            style={{ width: 100, textAlign: "center" }}
+            style={{ width: "100%", textAlign: "center", fontSize: "1vw" }}
             color={color}
             key={val}
           >
@@ -128,10 +132,11 @@ function TableComponent(props) {
       data: "",
       key: "key",
       align: "center",
-      width: 115,
+      width: "6vw",
       render: (text, record) => (
         <Button
-          style={{ width: 100 }}
+          align="center"
+          style={{ width: "100%" }}
           onClick={() => props.scheduleHandler(record)}
         >
           <HistoryOutlined />
@@ -141,27 +146,27 @@ function TableComponent(props) {
   ];
 
   return (
-      <div className="tableout">
-        <div className="tablein">
-          <Table
-            scroll={{ y: 500 }}
-            dataSource={props.data}
-            loading={props.isLoading}
-            columns={columns}
-            showSizeChanger="false"
-            size="small"
-            bordered
-            pagination={{
-              total: props.data.length,
-              showSizeChanger: false,
-              size: "default",
-              onChange(current) {
-                setPage(current);
-              },
-            }}
-          ></Table>
-        </div>
+    <div className="tableout">
+      <div className="tablein">
+        <Table
+          scroll={{ y: 500 }}
+          dataSource={props.data}
+          loading={props.isLoading}
+          columns={columns}
+          showSizeChanger="false"
+          size="small"
+          bordered
+          pagination={{
+            total: props.data.length,
+            showSizeChanger: false,
+            size: "default",
+            onChange(current) {
+              setPage(current);
+            },
+          }}
+        ></Table>
       </div>
+    </div>
   );
 }
 

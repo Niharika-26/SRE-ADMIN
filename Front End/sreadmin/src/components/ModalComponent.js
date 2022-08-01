@@ -154,7 +154,7 @@ const ModalComponent = (props) => {
   }
   return (
     <>
-      <EyeOutlined onClick={showModal} />
+      <EyeOutlined className="eye" onClick={showModal} />
       <Modal
         footer={[]}
         title={t("c4")}
