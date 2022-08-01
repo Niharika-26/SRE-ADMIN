@@ -1,12 +1,14 @@
 import { Button, Modal, Spin } from "antd";
 import { useTranslation } from "react-i18next";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { EyeOutlined } from "@ant-design/icons";
 import Dropdown from "./Dropdown";
 import "./styles/ModalComponent.css";
 import { asyncPost, asyncFetchEnvironments } from "../hooks/use-api";
 
 const ModalComponent = (props) => {
+
+  // For globalization
   const { t } = useTranslation();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isError, setIsError] = useState({});
@@ -14,10 +16,14 @@ const ModalComponent = (props) => {
   const [selectedJob, setSelectedJob] = useState(undefined);
   const [environments, setEnvironments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  // To handle modal visibility
   const showModal = () => {
     setIsModalVisible(true);
   };
 
+
+  // For sending request to get linked environment list
   useEffect(() => {
     if (selectedJob !== undefined && selectedJob.value !== "") {
       asyncFetchEnvironments(
@@ -33,6 +39,7 @@ const ModalComponent = (props) => {
     }
   }, [selectedJob]);
 
+  //For validating dropdown input selection and sending task scheduling request
   const handleOk = () => {
     if (
       selectedJob !== undefined &&
@@ -64,10 +71,12 @@ const ModalComponent = (props) => {
     }
   };
 
+  // To close the modal
   const handleCancel = () => {
     setIsModalVisible(false);
   };
 
+  // To show the modal containing dropdowns which is opened by add task button
   if (props.addTask) {
     return (
       <div className="modalbtn">
@@ -152,8 +161,10 @@ const ModalComponent = (props) => {
       </div>
     );
   }
+
+  // To Show the modal containing response data and which is opened by eye button
   return (
-    <>
+    <Fragment>
       <EyeOutlined className="eye" onClick={showModal} />
       <Modal
         footer={[]}
@@ -168,7 +179,7 @@ const ModalComponent = (props) => {
           </p>
         </div>
       </Modal>
-    </>
+    </Fragment>
   );
 };
 

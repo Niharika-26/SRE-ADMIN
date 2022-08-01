@@ -3,9 +3,12 @@ import { Fragment} from "react";
 import { useTranslation } from "react-i18next";
 
 const Copyright = () => {
+
+    // For globalization
     const { t } = useTranslation();
 
-return (<Fragment>
+return (
+<Fragment>
 <div className="foot">
     <p className="copyright">{" "}
               {t("fcopyright")}</p>

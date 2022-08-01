@@ -5,6 +5,8 @@ import { HistoryOutlined } from "@ant-design/icons";
 import ModalComponent from "./ModalComponent";
 import "./styles/Table.css";
 
+
+// Function to format date
 const dateFormat = (val) => {
   val = new Date(val);
   val =
@@ -21,10 +23,14 @@ const dateFormat = (val) => {
     val.getSeconds();
   return val;
 };
-function TableComponent(props) {
-  const { t } = useTranslation();
-  const [page, setPage] = useState(1);
 
+
+const TableComponent = (props) => {
+  //For Globalization
+  const { t } = useTranslation();
+  //For Pagination
+  const [page, setPage] = useState(1);
+//Defining columns of Table
   const columns = [
     {
       title: t("c1"),
@@ -32,6 +38,7 @@ function TableComponent(props) {
       key: "key",
       width: "4vw",
       align: "center",
+      // To render Serial number
       render: (value, item, index) => (page - 1) * 10 + index + 1,
     },
     {
@@ -61,6 +68,7 @@ function TableComponent(props) {
       key: "responsedata",
       align: "center",
       width: "5vw",
+      //To render eye buttoned modal to show response data
       render: (value) => <ModalComponent responseData={value} />,
     },
     {
@@ -96,6 +104,7 @@ function TableComponent(props) {
       key: "status",
       align: "center",
       width: "7vw",
+      //To represent status in tags
       render: (val) => {
         let color = "blue";
         val = val.toLowerCase();
@@ -131,6 +140,7 @@ function TableComponent(props) {
       key: "key",
       align: "center",
       width: "6vw",
+      //To render reschedule button
       render: (text, record) => (
         <Button
           align="center"
