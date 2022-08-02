@@ -6,3 +6,23 @@
 .eye {
   font-size: 18px;
 }
+
+.j-modal-body, .e-modal-body{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.p-job, .p-env{
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.d-job, .d-env{
+  display: inline-block;
+}
+
+.j-modal-body{
+  margin-bottom: 20px;
+}
