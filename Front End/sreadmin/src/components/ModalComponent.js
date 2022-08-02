@@ -108,42 +108,30 @@ const ModalComponent = (props) => {
           onCancel={handleCancel}
           style={{ textAlign: "center" }}
         >
-          <div style={{ textAlign: "left", marginBottom: 20 }}>
-            <p
-              style={{
-                display: "inline-block",
-                marginTop: 5,
-              }}
-            >
-              {t("phJob")}
+          <div className="j-modal-body">
+            <p className="p-job">{t("phJob")}
             </p>
             <Dropdown
               setIsError={setIsError}
               isError={isError.job}
               name="Job"
+              className="d-job"
               options={props.jobs}
               setSelectedOption={setSelectedJob}
             />
           </div>
-          <div style={{ textAlign: "left" }}>
-            <p style={{ display: "inline-block", marginTop: 5 }}>
-              {" "}
-              {t("phEnvironment")}
+          <div className="e-modal-body">
+            <p className="p-env">{t("phEnvironment")}
             </p>
             {isLoading ? (
-              <Spin
-                style={{
-                  display: "inline-block",
-                  marginTop: 5,
-                  marginLeft: 190,
-                }}
-                size="small"
+              <Spin size="small"
               />
             ) : (
               <Dropdown
                 setIsError={setIsError}
                 isError={isError.environment}
                 name="Environment"
+                className="d-env"
                 value={
                   selectedEnvironment === undefined
                     ? ""
