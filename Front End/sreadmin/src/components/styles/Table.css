@@ -16,9 +16,6 @@
   margin: 0;
   display: inline-block;
   min-height: 35rem;
-  /* visibility: hidden; */
-  box-shadow: 5px 5px blue,
-
 }
 .ant-table-body::-webkit-scrollbar {
   display: none;
@@ -36,11 +33,10 @@ tr:nth-child(odd) {
   background: #eff3f9;
 }
 
-.ant-table{
-  /* background-color: transparent; */
+.ant-table {
   visibility: visible;
 }
 
-.ant-table-pagination{
+.ant-table-pagination {
   visibility: visible;
 }
