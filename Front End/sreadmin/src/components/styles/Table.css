@@ -6,8 +6,8 @@
   margin: 0;
   min-height: calc(100vh - 95px);
   max-height: fit-content;
-  padding-top: 2.25rem;
-  padding-bottom: 1rem;
+  padding-top: 30px;
+  /* padding-bottom: 1rem; */
 }
 
 .tablein {

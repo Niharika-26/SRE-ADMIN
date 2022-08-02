@@ -23,7 +23,11 @@ def get_environments(db: Session, request:str):
     } for data in environments]
     return {"environments": environments}
 
+<<<<<<< HEAD
+
+=======
 # Function to create a task
+>>>>>>> 9f43494e1e2c98f9ada2e4ef75cc1f3f379a741b
 def create_task(db: Session,request: TaskBase):
     job_environment_id = db.query(DbJobEnvironment.job_environment_id).filter(DbJobEnvironment.job_id == request.job_id).filter(DbJobEnvironment.environment_id == request.environment_id).first()
     job_environment_id = job_environment_id["job_environment_id"]
