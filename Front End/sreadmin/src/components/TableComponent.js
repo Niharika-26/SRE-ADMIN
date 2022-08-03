@@ -9,17 +9,17 @@ import "./styles/Table.css";
 const dateFormat = (val) => {
   val = new Date(val);
   val =
-    val.getDate() +
+    ("0" + val.getDate()).slice(-2) +
     "/" +
-    (val.getMonth() + 1) +
+    ("0" + (val.getMonth() + 1)).slice(-2) +
     "/" +
     val.getFullYear() +
     " " +
-    val.getHours() +
+    ("0" + val.getHours()).slice(-2) +
     ":" +
-    val.getMinutes() +
+    ("0" + val.getMinutes()).slice(-2) +
     ":" +
-    val.getSeconds();
+    ("0" + val.getSeconds()).slice(-2);
   return val;
 };
 
