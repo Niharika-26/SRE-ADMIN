@@ -1,6 +1,6 @@
 export const asyncFetch = (setIsLoading, setData, setSearchedData, setJobs) => {
   setIsLoading(true);
-  fetch(`http://localhost:18000/data`)
+  fetch(`${process.env.REACT_APP_BACKEND_URL}/data`)
     .then((response) => response.json())
     .then((json) => {
       setData(json.tasks);
@@ -25,7 +25,7 @@ export const asyncPost = (
     job_id,
     environment_id,
   });
-  fetch(`http://localhost:18000/data`, {
+  fetch(`${process.env.REACT_APP_BACKEND_URL}/data`, {
     method: "POST",
     body,
     headers: { "Content-Type": "application/json" },
@@ -48,7 +48,7 @@ export const asyncFetchEnvironments = (
   setIsLoading
 ) => {
   setIsLoading(true);
-  fetch(`http://localhost:18000/data/${jobName}/environments`)
+  fetch(`${process.env.REACT_APP_BACKEND_URL}/data/${jobName}/environments`)
     .then((response) => response.json())
     .then((json) => {
       setEnvironments(json.environments);
