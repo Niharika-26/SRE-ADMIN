@@ -109,8 +109,7 @@ const ModalComponent = (props) => {
           style={{ textAlign: "center" }}
         >
           <div className="j-modal-body">
-            <p className="p-job">{t("phJob")}
-            </p>
+            <p className="p-job">{t("phJob")}</p>
             <Dropdown
               setIsError={setIsError}
               isError={isError.job}
@@ -121,11 +120,9 @@ const ModalComponent = (props) => {
             />
           </div>
           <div className="e-modal-body">
-            <p className="p-env">{t("phEnvironment")}
-            </p>
+            <p className="p-env">{t("phEnvironment")}</p>
             {isLoading ? (
-              <Spin size="small"
-              />
+              <Spin style={{ marginRight: 140 }} size="small" />
             ) : (
               <Dropdown
                 setIsError={setIsError}

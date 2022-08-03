@@ -1,12 +1,12 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "postgresql://sreintern:TxSyHPDoaw44396z@34.135.5.178/sreinsights_dcl"
-
 # Creating Database Engine
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL,echo=True
+engine = create_engine("postgresql://sreintern:TxSyHPDoaw44396z@34.135.5.178/sreinsights_dcl"
+    # os.environ['DATABASE_URL']
+,echo=True
 )
 
 # Creating Session
